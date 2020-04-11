@@ -1,0 +1,12 @@
+// Spacer multipliyer
+$spacer: 8;
+
+// Spacer function -  Using for margin & padding
+@function spacer($value) {
+  $result: ($value * $spacer);
+
+  @return $result+px
+};
+
+//width of container
+$sizeContainer: 1000px;

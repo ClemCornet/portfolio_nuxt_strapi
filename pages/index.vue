@@ -28,7 +28,7 @@ export default {
 
 @include bp('sm') {
   .card {
-  grid-column-start: 2;
-}
+    grid-column-start: 2;
+  }
 }
 </style>

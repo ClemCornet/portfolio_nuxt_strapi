@@ -1,7 +1,7 @@
 <template>
   <div>
     <img
-      :class="{[$style.rounded]: rounded}"
+      :class="{ [$style.rounded]: rounded }"
       :style="`width: ${width}px; height: ${width}px`"
       :src="require(`@/assets/${source}.jpg`)"
       :alt="alt"
