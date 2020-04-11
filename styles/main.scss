@@ -1,0 +1,13 @@
+@import 'reset.scss';
+@import 'colors.scss';
+@import 'fonts.scss';
+@import 'breakpoints.scss';
+@import 'background.scss';
+@import 'container.scss';
+@import 'shadow.scss';
+@import 'spacing.scss';
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  @extend %background;
+}

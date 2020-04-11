@@ -1,0 +1,13 @@
+%background {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#37487c+0,4c78ff+100 */
+  background: $blueDark;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, $blueDark 0%, $blueLight 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, $blueDark 0%, $blueLight 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, $blueDark 0%, $blueLight 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#37487c', endColorstr='#4c78ff', GradientType=1);
+  /* IE6-9 */
+}

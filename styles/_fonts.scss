@@ -1,0 +1,15 @@
+$fontSmallSize: 1.2rem;
+$fontMediumSize: 1.5rem;
+$fontLargeSize: 2.6rem;
+$fontBigSize: 6rem;
+
+$fontRegularWeight: 400;
+$fontMediumWeight: 500;
+$fontSemiBoldWeight: 600;
+$fontBoldWeight: 700;
+
+@mixin mixin-font($size, $color, $weight) {
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+}

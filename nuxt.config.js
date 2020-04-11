@@ -14,7 +14,21 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://use.typekit.net/efl2msd.css'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Montserrat&display=swap'
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -24,6 +38,16 @@ export default {
    ** Global CSS
    */
   css: [],
+  /*
+   ** styleRessources for global scss
+   */
+  styleResources: {
+    // your settings here
+    sass: [],
+    scss: ['./styles/main.scss'],
+    less: [],
+    stylus: []
+  },
   /*
    ** Plugins to load before mounting the App
    */
@@ -38,14 +62,43 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: ['@nuxtjs/apollo', '@nuxtjs/style-resources'],
+  /*
+   ** Apollo configuration
+   */
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: process.env.BACKEND_URL || 'http://localhost:1337/graphql'
+      }
+    }
+  },
+  /*
+   ** env variables
+   */
+  env: {
+    strapiBaseUri: process.env.API_URL || 'http://localhost:1337'
+  },
   /*
    ** Build configuration
    */
   build: {
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {}
-  }
+    extend(configuration, { isDev, isClient }) {
+      if (isDev && isClient) {
+        configuration.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/,
+        })
+      }
+    },
+    loaders: {
+      cssModules: {
+        modules: {
+          localIdentName: '[name]__[local]--[hash:base64:5]',
+        },
+      },
+    },
+  },
 }
