@@ -1,7 +1,7 @@
 {
-  "name": "portfolio_strapi",
+  "name": "portfolio_2020",
   "version": "1.0.0",
-  "description": "portfolio with nuxt and strapi",
+  "description": "portfolio 2020 build with Nuxt.js",
   "author": "ClemCornet",
   "private": true,
   "scripts": {

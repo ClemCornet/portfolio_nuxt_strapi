@@ -3,7 +3,7 @@
     <img
       :style="!!width ? `width: ${width}px; height: ${width}px` : ''"
       :class="[$style.image, { [$style.rounded]: rounded }]"
-      :src="require(`@/assets/images/${source}.png`)"
+      :src="require(`@/assets/images/${source}.${format}`)"
       :alt="alt"
     >
   </div>
@@ -16,6 +16,10 @@ export default {
     source: {
       type: String,
       required: true
+    },
+    format: {
+      type: String,
+      default: 'png'
     },
     width: {
       type: [String, Number],

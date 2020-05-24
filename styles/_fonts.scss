@@ -3,10 +3,12 @@ $fontMediumSize: 1.5rem;
 $fontLargeSize: 2.2rem;
 $fontBigSize: 6rem;
 
+$fontLightWeight: 300;
 $fontRegularWeight: 400;
 $fontMediumWeight: 500;
 $fontSemiBoldWeight: 600;
 $fontBoldWeight: 700;
+$fontBlackWeight: 800;
 
 @mixin font($size, $color, $weight) {
   font-size: $size;
