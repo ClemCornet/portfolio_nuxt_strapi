@@ -3,7 +3,7 @@
     <div :class="$style.wrapper">
       <div
         :class="$style.fillbar"
-        :style="{ transform: `scaleY(${0.4})` }"
+        :style="{ transform: `scaleY(${0.25})` }"
       />
       <div
         v-for="dot in dots"
@@ -11,7 +11,7 @@
         :class="[$style.dot, $style.inactive]"
         :style="{ top: `${(dot) / (dots.length) * 100}%` }"
       >
-        <div :class="$style.dotCircle" />
+        <!-- <div :class="$style.dotCircle" /> -->
       </div>
     </div>
   </div>
@@ -22,7 +22,7 @@ export default {
   name: 'Sidebar',
   data() {
     return {
-      dots: [0, 1, 2, 3, 4]
+      dots: [0, 1, 2, 3]
     }
   }
 }
@@ -34,18 +34,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
-
-  &.isInactive {
-
-    .wrapper::before {
-      transform: scaleY(0);
-    }
-
-    .dot {
-      opacity: 0;
-    }
-  }
+  height: 90%;
+  transform: translateY(64px);
 
   &.isUnclickable .dot {
     cursor: default;
@@ -74,7 +64,6 @@ export default {
 
 .fillbar {
   background-color: $purewhite;
-  transform: scaleY(0);
   transform-origin: top;
   position: absolute;
   top: 0;
@@ -91,6 +80,7 @@ export default {
   border-radius: 50%;
   transform: translateY(-50%);
   border: 5px solid $bluedark;
+  cursor: pointer;
   &.inactive {
       background-color: $purewhite;
   }
