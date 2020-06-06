@@ -26,7 +26,14 @@
         @collapsed="collapsed"
       />
     </Flex>
-    <SkillCollapsed v-if="isCollapsed" :item-collapsed="itemCollapsed" @reduce="toggle" />
+    <SkillCollapsed
+      v-if="isCollapsed"
+      :title="collapsedSkills.title"
+      :description="collapsedSkills.description"
+      :illustration="collapsedSkills.illustration"
+      :technos="collapsedSkills.technos"
+      @reduce="toggle"
+    />
   </Grid>
 </template>
 
@@ -56,22 +63,40 @@ export default {
   data() {
     return {
       isCollapsed: false,
-      itemCollapsed: null
+      idxCollapsed: null,
+      technos: null
     }
   },
   computed: {
+    ...mapGetters('skills', ['skills']),
     isActive() {
       return this.$options.name === this.current
     },
-    ...mapGetters('skills', ['skills'])
+    collapsedSkills() {
+      const { title, description, illustration, technos } = this.getCollapsedSkills(this.idxCollapsed)
+      return {
+        title,
+        description,
+        illustration,
+        technos
+      }
+    }
   },
   methods: {
-    collapsed(index) {
+    collapsed(idx) {
       this.toggle()
-      this.itemCollapsed = this.skills[index].technos
+      this.idxCollapsed = idx
     },
     toggle() {
       this.isCollapsed = !this.isCollapsed
+    },
+    getCollapsedSkills(idx) {
+      return {
+        title: this.skills[idx].title,
+        description: this.skills[idx].description,
+        illustration: this.skills[idx].illustration,
+        technos: this.skills[idx].technos
+      }
     }
   }
 }

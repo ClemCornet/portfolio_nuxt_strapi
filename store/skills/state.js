@@ -3,7 +3,7 @@ export default () => ({
     {
       id: 0,
       image: 'Number01',
-      illustration: 'Frontend',
+      illustration: 'FrontendIllu',
       title: 'Frontend',
       description:
         'Pour le CSS, j\'utilise principalement l\'outil SASS et des frameworks tels que Bootstrap et TailwindCSS. Côté JS, j\'utilise l\'ES2015 et je me suis formé aux frameworks Vue.js & React.js.',
@@ -11,73 +11,85 @@ export default () => ({
       technos: [
         {
           name: 'Vue.js',
-          description: 'A progressive framework'
+          description: 'The progressive framework',
+          image: 'vuejs'
         },
         {
           name: 'React.js',
-          description: 'A progressive framework'
+          description: 'The javascript framework by Facebook',
+          image: 'reactjs'
         },
         {
           name: 'Nuxt.js',
-          description: 'A progressive framework'
+          description: 'The progressive vue.js framework',
+          image: 'nuxtjs'
         },
         {
           name: 'Tailwind',
-          description: 'A progressive framework'
+          description: 'A utility-first CSS framework',
+          image: 'tailwind'
         },
         {
           name: 'SASS',
-          description: 'A progressive framework'
+          description: 'Syntactically Awesome Style Sheet',
+          image: 'sass'
         }
       ]
     },
     {
       id: 1,
       image: 'Number02',
-      illustration: 'Backend',
+      illustration: 'BackendIllu',
       title: 'Backend',
       description:
-        'Pour le CSS, j\'utilise principalement l\'outil SASS et des frameworks tels que Bootstrap et TailwindCSS. Côté JS, j\'utilise l\'ES2015 et je me suis formé aux frameworks Vue.js & React.js.',
+        'En parrallèle de mon cursus orienté front, j\'ai pu me former et travailler sur des technologies backend. Côté serveur, j\'utlise Node.js avec le framework Express.js. Pour les SGBD j\'ai pu expérimenter : MySQL, MongoDB & Firebase.',
       bordered: true,
       technos: [
         {
           name: 'Node.js',
-          description: 'A progressive framework'
+          description: 'Javascript on server-side',
+          image: 'nodejs'
+        },
+        {
+          name: 'Express.js',
+          description: 'Framework Node.js',
+          image: 'express'
         },
         {
           name: 'MySQL',
-          description: 'A progressive framework'
+          description: 'Relationnal database',
+          image: 'mysql'
         },
         {
           name: 'MongoDB',
-          description: 'A progressive framework'
-        },
-        {
-          name: 'Python',
-          description: 'A progressive framework'
+          description: 'A document oriented database',
+          image: 'mongodb'
         }
       ]
     },
     {
       id: 2,
       image: 'Number03',
-      illustration: 'Design',
+      illustration: 'DesignIllu',
       title: 'Visual Design',
       description:
-        'Pour le CSS, j\'utilise principalement l\'outil SASS et des frameworks tels que Bootstrap et TailwindCSS. Côté JS, j\'utilise l\'ES2015 et je me suis formé aux frameworks Vue.js & React.js.',
+        'Pour mes projets, j\'aime réaliser un travail de conception et de design en amont. Je conçois mes maquettes principalement avec les logiciels Adobe XD et Figma.',
       bordered: false,
       technos: [
         {
           name: 'Adobe XD',
-          description: 'A progressive framework'
+          description: 'Design at the speed of thought',
+          image: 'adobexd'
         },
         {
           name: 'Figma',
-          description: 'A progressive framework'
+          description: 'The collaborative interface design tool',
+          image: 'figma'
         },
         {
           name: 'Photoshop',
-          description: 'A progressive framework'
+          description: 'The creative world runs on Photoshop',
+          image: 'photoshop'
         }
       ]
     }
