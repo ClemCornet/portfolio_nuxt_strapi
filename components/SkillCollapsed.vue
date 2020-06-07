@@ -1,44 +1,35 @@
 <template>
-  <Grid :template-columns="$isMobile ? '1fr' : '5fr 1fr'">
-    <Flex direction="column" wrap="nowrap">
-      <div :class="$style.wrapperLeft">
-        <div @click="reduce">
-          -
-        </div>
-        <TechnoItem
-          v-for="techno in technos"
-          :key="techno.name"
-          :image="techno.image"
-          :name="techno.name"
-          :description="techno.description"
-        />
-      </div>
-    </Flex>
-    <div :class="$style.wrapperRight">
-      <div>{{ title }}</div>
-      <component :is="illustration" :class="$style.illustration" />
-      <div>{{ description }}</div>
-    </div>
+  <Grid
+    :template-columns="$isMobile ? '1fr' : '2fr 1fr'"
+  >
+    <Grid :class="$style.wrapperLeft">
+      <TechnoItem
+        v-for="techno in technos"
+        :key="techno.name"
+        :image="techno.image"
+        :name="techno.name"
+        :description="techno.description"
+      />
+    </Grid>
+    <TechnoDescription
+      :illustration="illustration"
+      :title="title"
+      :description="description"
+    />
   </Grid>
 </template>
 
 <script>
-import FrontendIllu from '../assets/illustrations/Frontend.vue'
-import BackendIllu from '../assets/illustrations/Backend.vue'
-import DesignIllu from '../assets/illustrations/Design.vue'
 import TechnoItem from '@/components/TechnoItem.vue'
+import TechnoDescription from '@/components/TechnoDescription.vue'
 import Grid from '@/components/Grid.vue'
-import Flex from '@/components/Flex.vue'
 
 export default {
   name: 'SkillCollapsed',
   components: {
     Grid,
-    Flex,
-    FrontendIllu,
-    BackendIllu,
-    DesignIllu,
-    TechnoItem
+    TechnoItem,
+    TechnoDescription
   },
   props: {
     title: {
@@ -67,11 +58,22 @@ export default {
 </script>
 
 <style lang="scss" module>
- .wrapperLeft {
-   height: 100px;
- }
-.illustration {
-  width: 100px;
-  height: 50px;
+
+.wrapperLeft {
+  @media screen and (min-width: 200px) and (max-width: 992px) {
+    grid-template-columns: 1fr;
+  }
+  @media screen and (min-width: 992px) and (max-width: 1200px) {
+    grid-template-columns: repeat(auto-fill, 200px);
+  }
+  @media screen and (min-width: 1200px) and (max-width: 1400px) {
+    grid-template-columns: repeat(auto-fill, 300px);
+  }
+  @media screen and (min-width: 1400px) and (max-width: 1600px){
+    grid-template-columns: repeat(auto-fill, 400px);
+  }
+  @media screen and (min-width: 1600px) {
+    grid-template-columns: repeat(auto-fill, 500px);
+  }
 }
 </style>
