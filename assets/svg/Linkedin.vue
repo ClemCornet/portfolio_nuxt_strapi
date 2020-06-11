@@ -1,6 +1,6 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" width="24.99" height="24.99" viewBox="0 0 24.99 24.99">
-    <path id="linkedin-in-brands" d="M5.594,25H.413V8.315H5.594ZM3,6.04A3.015,3.015,0,1,1,6,3.011,3.026,3.026,0,0,1,3,6.04ZM24.985,25h-5.17V16.878c0-1.936-.039-4.418-2.694-4.418-2.694,0-3.107,2.1-3.107,4.279V25H8.839V8.315h4.969v2.276h.073a5.444,5.444,0,0,1,4.9-2.694c5.244,0,6.207,3.453,6.207,7.938V25Z" transform="translate(0 -0.01)" fill="#fff" />
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+    <image id="Calque_1" data-name="Calque 1" width="20" height="20" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABLElEQVQ4jdWTvUpDQRCFv1xjouINQWzEvIF2Vpa+hpWFdV4gj2FpaWFtICpaiaQRLG209AcEsUhAhGiObNgLeycR2XsrD+yyZ2bn7MzsLpJSSReSBpJ6khqSKDrc1FcevTKCFU1kc/gC5imIBLgxoZdFxSaQ1JR0Kule0knZHlamKy6HKrAFtIAPYAl4Am696g6wCoyBGnDs7XvAho9/8W27ykrumlvuBiU8Gt+2pGvNxqGLcSe8mxpD/uqzz+znQOOXnuwDZ1VfToiQfwfrlWA9BNIZop0k8gbcAW1gHdgEHoy/FSt4BBz4DO+AXeNfjBXsG/5seBIr+Gl43fBxrGDNZmQ3xAr+if8huGxsIW8a34Lhc4an7qe8+XeVwfEM7uOvBTzc5zDK2WD4A2nLNLmVN/RyAAAAAElFTkSuQmCC" />
   </svg>
 </template>
 

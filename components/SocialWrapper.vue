@@ -1,16 +1,13 @@
 <template>
-  <div>
-    <h3 :class="$style.title">
-      Keep in touch
-    </h3>
-    <Flex justify="center" :class="$style.wrapperButton">
+  <Flex align="flex-end" justify="flex-end">
+    <Flex :class="$style.wrapperButton">
       <SocialButton
         v-for="network in social"
         :key="network.id"
         :network="network"
       />
     </Flex>
-  </div>
+  </Flex>
 </template>
 
 <script>
@@ -37,6 +34,6 @@ export default {
 }
 
 .wrapperButton {
-    margin-top: spacer(4);
+    margin-bottom: spacer(4);
 }
 </style>

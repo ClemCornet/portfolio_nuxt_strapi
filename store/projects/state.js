@@ -9,7 +9,7 @@ export default () => ({
       technos: ['VueJS', 'google API', 'SCSS'],
       resume:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fringilla lacus non condimentum sodales. Donec mollis sapien vitae augue commodo, vel accumsan est venenatis.',
-      image: 'assets/images/project01.png'
+      image: 'foodreview'
     },
     {
       id: 2,
@@ -17,10 +17,10 @@ export default () => ({
       type: 'saas / web application',
       context: 'professional project',
       year: '2020',
-      technos: ['VueJS', 'Vuex', 'Symfony', 'API platform'],
+      technos: ['VueJS', 'Vuex', 'API rest'],
       resume:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fringilla lacus non condimentum sodales. Donec mollis sapien vitae augue commodo, vel accumsan est venenatis.',
-      image: 'assets/images/project01.png'
+      image: 'meero'
     },
     {
       id: 3,
@@ -31,7 +31,7 @@ export default () => ({
       technos: ['Wordpress', 'Javascript', 'SCSS'],
       resume:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fringilla lacus non condimentum sodales. Donec mollis sapien vitae augue commodo, vel accumsan est venenatis.',
-      image: 'assets/images/project01.png'
+      image: 'dearcom'
     },
     {
       id: 4,
@@ -42,18 +42,18 @@ export default () => ({
       technos: ['Javascript', 'Bootstrap', 'SCSS'],
       resume:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fringilla lacus non condimentum sodales. Donec mollis sapien vitae augue commodo, vel accumsan est venenatis.',
-      image: 'assets/images/project01.png'
+      image: 'boardgame'
     },
     {
       id: 5,
       title: 'Ostéopathe',
-      type: 'browser game',
+      type: 'showcase website',
       context: 'school project',
       year: '2018',
-      technos: ['Javascript', 'Bootstrap', 'SCSS'],
+      technos: ['Wordpress', 'Bootstrap', 'SCSS'],
       resume:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fringilla lacus non condimentum sodales. Donec mollis sapien vitae augue commodo, vel accumsan est venenatis.',
-      image: 'assets/images/project01.png'
+      image: 'osteopathe'
     }
   ]
 })

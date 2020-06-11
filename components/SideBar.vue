@@ -3,15 +3,16 @@
     <div :class="$style.wrapper">
       <div
         :class="$style.fillbar"
-        :style="{ transform: `scaleY(${(currentIndex + 1) / dots.length})` }"
+        :style="{ transform: `scaleY(${(currentIndex ) / dots.length})` }"
       />
       <div
-        v-for="dot in dots"
+        v-for="(dot, index) in dots"
         :key="dot"
-        :class="[$style.dot, $style.inactive]"
+        :class="[$style.dot, {[$style.active]: isActive(index)}]"
         :style="{ top: `${(dot) / (dots.length) * 100}%` }"
+        @click="changePage(index)"
       >
-        <!-- <div :class="$style.dotCircle" /> -->
+        <div :class="[$style.dotCircle, {[$style.active]: isActive(index)}]" />
       </div>
     </div>
   </div>
@@ -28,6 +29,14 @@ export default {
   },
   computed: {
     ...mapGetters('pages', ['currentIndex'])
+  },
+  methods: {
+    isActive(index) {
+      return this.currentIndex === index
+    },
+    changePage(index) {
+      this.$emit('changePage', index)
+    }
   }
 }
 </script>
@@ -40,10 +49,6 @@ export default {
   justify-content: center;
   height: 90%;
   transform: translateY(64px);
-
-  &.isUnclickable .dot {
-    cursor: default;
-  }
 }
 
 .wrapper {
@@ -86,12 +91,17 @@ export default {
   transform: translateY(-50%);
   border: 5px solid $bluedark;
   cursor: pointer;
-  &.inactive {
-      background-color: $purewhite;
+  background-color: rgba($purewhite, 0.5);
+  transition: all 0.5s ease-in-out;
+  &.active {
+    background-color: $greenmain;
+    opacity: 1;
   }
 }
 
   .dotCircle {
+  opacity: 0;
+  transform: scale(0.5);
   z-index: 5;
   position: relative;
   top: -100%;
@@ -101,6 +111,11 @@ export default {
   background: transparent;
   border: 0.01rem solid $purewhite;
   border-radius: 50%;
+  transition: all 0.5s ease-in-out;
+    &.active {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
 </style>

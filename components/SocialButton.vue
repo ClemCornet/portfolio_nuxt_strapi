@@ -31,7 +31,7 @@ export default {
 
 .button {
   margin: 0 spacer(3);
-  padding: spacer(1) spacer(2);
+  padding: spacer(0.8) spacer(2);
   position: relative;
   &:before{
     content: "";

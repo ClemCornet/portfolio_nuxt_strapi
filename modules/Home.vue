@@ -6,6 +6,8 @@
           source="title_frontend"
           alt="title frontend"
           :class="$style.image"
+          :width="620"
+          :height="99"
         />
       </template>
       <h1 :class="$style.title">
@@ -17,7 +19,7 @@
         </p>
       </template>
     </Hero>
-    <MySelf :description="content.description" />
+    <MySelf :class="$style.myself" :description="content.description" />
   </div>
 </template>
 
@@ -72,6 +74,7 @@ export default {
 }
 
 .title {
+  margin-left: spacer(0.5);
   @include font($fontMediumSize, $purewhite, $fontSemiBoldWeight);
   @include bp('sm') {
     @include font($fontBigSize, $purewhite, $fontSemiBoldWeight);
@@ -79,7 +82,12 @@ export default {
 }
 
 .subtitle {
-  @include font($fontSmallSize, $purewhite, $fontRegularWeight);
+  margin-left: spacer(1);
+  @include font($fontMediumSize, $purewhite, $fontRegularWeight);
+}
+
+.myself {
+  margin-top: spacer(12);
 }
 
 .main {

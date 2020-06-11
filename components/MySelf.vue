@@ -1,28 +1,27 @@
 <template>
-  <Grid
-    :template-columns="$isMobile ? '1fr' : $isTablet ? '2fr 5fr' : '1fr 5fr'"
-    :justify-items="$isMobile ? 'center' : ''"
-  >
+  <Flex>
     <Avatar
       source="avatar"
       :rounded="true"
       :width="160"
+      :heigth="160"
+      :class="$style.avatar"
     />
     <p :class="[$style.description, {[$style.bordered]: $isMobile }]">
       {{ description }}
     </p>
-  </Grid>
+  </Flex>
 </template>
 
 <script>
-import Grid from '@/components/Grid.vue'
+import Flex from '@/components/Flex.vue'
 import Avatar from '@/components/Image.vue'
 
 export default {
   name: 'MySelf',
   components: {
     Avatar,
-    Grid
+    Flex
   },
   props: {
     description: {
@@ -36,8 +35,10 @@ export default {
 <style lang="scss" module>
 .description {
   @include paragraph();
-  padding: spacer(8) spacer(4) 0 spacer(4);
+  align-self: center;
+  padding-left: spacer(4);
   text-justify: right;
+  width: 50%;
 }
 
 .bordered {
@@ -50,5 +51,4 @@ export default {
   left: 20px;
   }
 }
-
 </style>

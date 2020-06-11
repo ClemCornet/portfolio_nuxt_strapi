@@ -1,6 +1,6 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" width="27.609" height="25" viewBox="0 0 27.609 19">
-    <path id="twitter-brands" d="M24.771,53.67c.018.245.018.491.018.736,0,7.48-5.693,16.1-16.1,16.1A15.99,15.99,0,0,1,0,67.965a11.707,11.707,0,0,0,1.366.07,11.332,11.332,0,0,0,7.025-2.418A5.668,5.668,0,0,1,3.1,61.694a7.135,7.135,0,0,0,1.069.088,5.984,5.984,0,0,0,1.489-.193,5.659,5.659,0,0,1-4.537-5.553v-.07a5.7,5.7,0,0,0,2.558.718,5.667,5.667,0,0,1-1.752-7.568,16.084,16.084,0,0,0,11.667,5.921,6.388,6.388,0,0,1-.14-1.3,5.664,5.664,0,0,1,9.793-3.872A11.14,11.14,0,0,0,26.838,48.5a5.643,5.643,0,0,1-2.488,3.118,11.343,11.343,0,0,0,3.258-.876,12.163,12.163,0,0,1-2.838,2.926Z" transform="translate(0 -48.082)" fill="#fff" />
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19" height="15" viewBox="0 0 19 15">
+    <image id="Calque_1" data-name="Calque 1" width="19" height="15" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAPCAYAAAAGRPQsAAABJElEQVQ4jZ2TvSvFURjHP9dL3DL4A8hbGWVWFpmVxWK4qTvyFzDYZLWJP8CmLLIogySxyCDFIMTkZuAOfHT4/eq4L3733m+dOi/f8znPc3oe1Ha1VyVj5NUN9c1fnauTyZ15dTZM+tUHdToDdma1Suq9+qROBdNYdDhXB7RUAxTrVS0E41DFwVHyQAzbyoDtBl9qXq9huFJX1Qn1IAM2nsL61BX1MePCfxoNsJw6DNwAbbSmZ2AAKAfALbDWIijoMIB+ZtEnL6sfLaQ4kzLi1EpAV5NRnQJ76SKGHQNfTcIW/6wq6im0VkG9ayC9YmVxh8g6I/YncN1AhAvAdtVu0qz7armBaC7UkXr92wGcADtAHhgEuoEeIAe8Ay/AJbCZlEFtAd/V0HsPbKcAFQAAAABJRU5ErkJggg==" />
   </svg>
 </template>
 

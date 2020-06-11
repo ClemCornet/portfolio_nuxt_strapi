@@ -1,7 +1,7 @@
 <template>
   <div>
     <img
-      :style="!!width ? `width: ${width}px; height: ${width}px` : ''"
+      :style="!!width ? `width: ${width}px; height: ${height}px` : ''"
       :class="[$style.image, { [$style.rounded]: rounded }]"
       :src="require(`@/assets/images/${source}.${format}`)"
       :alt="alt"
@@ -25,6 +25,10 @@ export default {
       type: [String, Number],
       default: null
     },
+    height: {
+      type: [String, Number],
+      default: null
+    },
     rounded: {
       type: Boolean,
       default: false
@@ -39,10 +43,6 @@ export default {
 </script>
 
 <style lang="scss" module>
-// .image {
-//   width: 100%;
-//   height: 100%;
-// }
 .rounded {
   border-radius: 50%;
 }

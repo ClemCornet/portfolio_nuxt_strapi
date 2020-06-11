@@ -3,7 +3,7 @@
     :class="$style.wrapper"
     :template-columns="$isMobile ? '1fr' : '1fr 5fr'"
   >
-    <SideBar v-if="!$isMobile" :class="$style.sidebar" />
+    <SideBar v-if="!$isMobile" :class="$style.sidebar" @changePage="changePage" />
     <component :is="currentPage" :current="currentPage" />
     <SocialWrapper v-if="currentPage === 'Home'" :class="$style.social" />
   </Grid>
@@ -77,6 +77,9 @@ export default {
           this.updatePage(this.currentIndex - 1)
         }
       }
+    },
+    changePage(index) {
+      this.navigatePage(index)
     }
   }
 }
