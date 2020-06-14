@@ -2,7 +2,7 @@
   <div>
     <img
       :style="!!width ? `width: ${width}px; height: ${height}px` : ''"
-      :class="[$style.image, { [$style.rounded]: rounded }]"
+      :class="[$style.image, {[$style.rounded]: rounded }]"
       :src="require(`@/assets/images/${source}.${format}`)"
       :alt="alt"
     >

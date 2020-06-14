@@ -1,7 +1,7 @@
 <template>
   <Grid
     :class="$style.wrapper"
-    :template-columns="$isMobile ? '1fr' : '1fr 5fr'"
+    :template-columns="$isMobile ? '1fr' : '0.5fr 5fr'"
   >
     <SideBar v-if="!$isMobile" :class="$style.sidebar" @changePage="changePage" />
     <component :is="currentPage" :current="currentPage" />

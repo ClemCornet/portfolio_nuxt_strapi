@@ -2,11 +2,11 @@ export default () => ({
   skills: [
     {
       id: 0,
-      image: 'Number01',
+      image: 'skills/number_01',
       illustration: 'FrontendIllu',
       title: 'Frontend',
       description:
-        'Pour le CSS, j\'utilise principalement l\'outil SASS et des frameworks tels que Bootstrap et TailwindCSS. Côté JS, j\'utilise l\'ES2015 et je me suis formé aux frameworks Vue.js & React.js.',
+        'Pour le CSS, j\'utilise principalement l\'outil SASS et des frameworks tels que Bootstrap et TailwindCSS.',
       bordered: true,
       technos: [
         {
@@ -38,11 +38,11 @@ export default () => ({
     },
     {
       id: 1,
-      image: 'Number02',
+      image: 'skills/number_02',
       illustration: 'BackendIllu',
       title: 'Backend',
       description:
-        'En parrallèle de mon cursus orienté front, j\'ai pu me former et travailler sur des technologies backend. Côté serveur, j\'utlise Node.js avec le framework Express.js. Pour les SGBD j\'ai pu expérimenter : MySQL, MongoDB & Firebase.',
+        'En parrallèle de mon cursus orienté front, j\'ai pu me former et travailler sur des technologies backend.',
       bordered: true,
       technos: [
         {
@@ -69,11 +69,11 @@ export default () => ({
     },
     {
       id: 2,
-      image: 'Number03',
+      image: 'skills/number_03',
       illustration: 'DesignIllu',
       title: 'Visual Design',
       description:
-        'Pour mes projets, j\'aime réaliser un travail de conception et de design en amont. Je conçois mes maquettes principalement avec les logiciels Adobe XD et Figma.',
+        'Pour mes projets, j\'aime réaliser un travail de conception et de design en amont.',
       bordered: false,
       technos: [
         {

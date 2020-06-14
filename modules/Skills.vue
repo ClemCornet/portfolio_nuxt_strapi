@@ -1,15 +1,12 @@
 <template>
   <Grid
     :class="$style.wrapper"
-    :template-rows="$isMobile ? '1fr' : '1fr 2fr'"
+    :template-rows="$isMobile ? '1fr' : '1fr 1fr 1fr'"
   >
     <Hero :class="$style.hero">
       <h1 :class="$style.title">
         {{ 'Skills' | capitalize }}
       </h1>
-      <template #subtitle>
-        my awesome skills...
-      </template>
     </Hero>
     <Flex
       v-if="!isCollapsed"
@@ -17,10 +14,10 @@
       :direction="$isMobile ? 'column' : 'row'"
     >
       <SkillItem
-        v-for="skill in skills"
+        v-for="(skill, index) in skills"
         :key="skill.id"
         :index="skill.id"
-        :class="$style.item"
+        :class="[$style.item, {[$style.large]: index != 0}]"
         :image="skill.image"
         :title="skill.title"
         :description="skill.description"
@@ -42,6 +39,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { activeMixin } from './activeMixin.js'
 import Hero from '@/components/Hero.vue'
 import SkillItem from '@/components/SkillItem.vue'
 import Grid from '@/components/Grid.vue'
@@ -57,6 +55,7 @@ export default {
     SkillItem,
     SkillCollapsed
   },
+  mixins: [activeMixin],
   props: {
     current: {
       type: String,
@@ -72,9 +71,9 @@ export default {
   },
   computed: {
     ...mapGetters('skills', ['skills']),
-    isActive() {
-      return this.$options.name === this.current
-    },
+    // isActive() {
+    //   return this.$options.name === this.current
+    // },
     collapsedSkills() {
       const { title, description, illustration, technos } = this.getCollapsedSkills(this.idxCollapsed)
       return {
@@ -84,6 +83,9 @@ export default {
         technos
       }
     }
+  },
+  mounted() {
+    this.isActive()
   },
   methods: {
     collapsed(idx) {
@@ -119,9 +121,12 @@ export default {
   }
 }
 .item {
-  padding: 0 spacer(4);
+  padding-right: spacer(4);
+  &.large {
+    padding-left: spacer(4);
+  }
 }
  .skills {
-   height: 50%;
+   height: 100%;
 }
 </style>

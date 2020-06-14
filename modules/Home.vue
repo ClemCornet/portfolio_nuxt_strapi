@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Hero :class="[$style.hero,{[$style.isActive]: active}]">
+    <Hero :class="[$style.hero, {[$style.isActive]: active}]">
       <template #image>
         <TitleImage
           source="title_frontend"
@@ -19,11 +19,15 @@
         </p>
       </template>
     </Hero>
-    <MySelf :class="$style.myself" :description="content.description" />
+    <div :class="[$style.myself, {[$style.isActive]: active}]">
+      ça, ça va là
+    </div>
+    <MySelf :description="content.description" />
   </div>
 </template>
 
 <script>
+import { activeMixin } from './activeMixin.js'
 import Hero from '@/components/Hero.vue'
 import TitleImage from '@/components/Image.vue'
 import MySelf from '@/components/MySelf.vue'
@@ -35,6 +39,7 @@ export default {
     TitleImage,
     MySelf
   },
+  mixins: [activeMixin],
   props: {
     current: {
       type: String,
@@ -43,7 +48,6 @@ export default {
   },
   data() {
     return {
-      active: false,
       isLoaded: false
     }
   },
@@ -54,15 +58,6 @@ export default {
   },
   mounted() {
     this.isActive()
-  },
-  methods: {
-    isActive() {
-      if (this.$options.name === this.current) {
-        this.$nextTick(() => {
-          this.active = !this.active
-        })
-      }
-    }
   }
 }
 </script>
@@ -73,21 +68,40 @@ export default {
   margin-top: spacer(8)
 }
 
+.image {
+  position: relative;
+  &:after {
+    @include overlayHorizontal((position: absolute, value: 0, delay: 1s));
+  }
+}
+
 .title {
   margin-left: spacer(0.5);
+  position: relative;
   @include font($fontMediumSize, $purewhite, $fontSemiBoldWeight);
   @include bp('sm') {
     @include font($fontBigSize, $purewhite, $fontSemiBoldWeight);
+  }
+    &:after {
+    @include overlayHorizontal((position: absolute, value: 0, delay: 1s));
   }
 }
 
 .subtitle {
   margin-left: spacer(1);
+  position: relative;
   @include font($fontMediumSize, $purewhite, $fontRegularWeight);
+   &:after {
+    @include overlayVertical((position: absolute, value: 0, delay: 2s));
+  }
 }
 
 .myself {
-  margin-top: spacer(12);
+  //margin-top: spacer(12);
+  position: relative;
+  //  &:after {
+  //   @include overlayHorizontal((position: absolute, value: 0, delay: 2.5s));
+  // }
 }
 
 .main {
@@ -95,48 +109,27 @@ export default {
   grid-column-start: 2;
 }
 
-.title {
-  position: relative;
-
-  &::after {
-    background-color: $bluedark;
-    transform: scaleX(1);
-    transform-origin: left;
-    transition: transform 1s ease-out;
-    content: "";
-    @include overlay
-  }
-}
-
 .isActive {
   .title {
-    &::after {
-      transform: scaleX(0);
-      transform-origin: right;
+    &:after {
+      @include overlayHorizontalHide
       }
   }
-}
-
-.image {
-  position: relative;
-
-  &::after {
-    background-color: $bluedark;
-    transform: scaleX(1);
-    transform-origin: left;
-    transition: transform 1s ease-out;
-    content: "";
-    @include overlay
+  .subtitle {
+    &:after {
+      @include overlayVerticalHide
+      }
   }
-}
 
-.isActive {
   .image {
-    &::after {
-      transform: scaleX(0);
-      transform-origin: right;
+    &:after {
+      @include overlayHorizontalHide
+    }
+  }
+  .myself {
+    &:after {
+      @include overlayHorizontalHide
     }
   }
 }
-
 </style>

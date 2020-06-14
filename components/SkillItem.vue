@@ -1,9 +1,16 @@
 <template>
   <Flex
     direction="column"
+    flex="1"
     :class="[$style.item, {[$style.bordered]: bordered}]"
   >
-    <component :is="image" />
+    <ImageNumber
+      :source="image"
+      alt="number"
+      :class="[$style.image]"
+      :width="150"
+      :height="150"
+    />
     <h2 :class="$style.title">
       {{ title | capitalize }}
     </h2>
@@ -17,18 +24,14 @@
 </template>
 
 <script>
-import Number01 from '../assets/svg/Number01.vue'
-import Number02 from '../assets/svg/Number02.vue'
-import Number03 from '../assets/svg/Number03.vue'
+import ImageNumber from '@/components/Image.vue'
 import Flex from '@/components/Flex.vue'
 
 export default {
   name: 'SkillItem',
   components: {
     Flex,
-    Number01,
-    Number02,
-    Number03
+    ImageNumber
   },
   props: {
     index: {
@@ -80,7 +83,7 @@ export default {
 
 .description {
     @include paragraph();
-    margin-top: spacer(6);
+    margin-top: spacer(4  );
 }
 
 .button {

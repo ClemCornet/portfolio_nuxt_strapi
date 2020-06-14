@@ -1,11 +1,47 @@
-@mixin overlay($list: (
+@mixin overlayHorizontal($list: (
   position: absolute,
   value: 0,
+  delay: 1s
 )) {
   position: map-get($list, position);
   top: map-get($list, value);
   right: map-get($list, value);
   bottom: map-get($list, value);
   left: map-get($list, value);
+  background-color: $bluedark;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform  map-get($list, delay) ease-in-out;
+  content: "";
+  @content;
+}
+
+@mixin overlayHorizontalHide() {
+  transform: scaleX(0);
+  transform-origin: right;
+   @content;
+}
+
+@mixin overlayVertical($list: (
+  position: absolute,
+  value: 0,
+  delay: 1s
+)) {
+  position: map-get($list, position);
+  top: map-get($list, value);
+  right: map-get($list, value);
+  bottom: map-get($list, value);
+  left: 0;
+  background-color: red;
+  transform: scaleY(1);
+  transform-origin: top;
+  transition: transform  map-get($list, delay) ease-in-out;
+  content: "";
+  @content;
+}
+
+@mixin overlayVerticalHide() {
+  transform: scaleY(0);
+  transform-origin: bottom;
   @content;
 }

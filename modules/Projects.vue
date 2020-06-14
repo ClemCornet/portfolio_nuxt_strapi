@@ -59,6 +59,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { activeMixin } from './activeMixin.js'
 import Grid from '@/components/Grid.vue'
 import Hero from '@/components/Hero.vue'
 import Tabs from '@/components/TabsProjects.vue'
@@ -72,6 +73,7 @@ export default {
     Tabs,
     Tab
   },
+  mixins: [activeMixin],
   props: {
     current: {
       type: String,
@@ -79,10 +81,13 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('projects', ['projects']),
-    isActive() {
-      return this.$options.name === this.current
-    }
+    ...mapGetters('projects', ['projects'])
+    // isActive() {
+    //   return this.$options.name === this.current
+    // }
+  },
+  mounted() {
+    this.isActive()
   }
 }
 </script>

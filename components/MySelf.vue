@@ -39,6 +39,7 @@ export default {
   padding-left: spacer(4);
   text-justify: right;
   width: 50%;
+
 }
 
 .bordered {
