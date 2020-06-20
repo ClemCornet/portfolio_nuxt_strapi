@@ -1,7 +1,7 @@
 .containerProject {
     position: relative;
     &:after {
-    @include overlayHorizontal()
+    @include overlayHorizontal((position: absolute, value: 0, delay: 2.2s))
   }
 }
 

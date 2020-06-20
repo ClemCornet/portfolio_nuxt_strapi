@@ -110,16 +110,17 @@ export default {
   height: 100vh;
 }
 .hero {
+  position: relative;
   margin-top: spacer(8);
+  &:after {
+    @include overlayHorizontal((position: absolute, value: 0, delay: 2s))
+  }
 }
 .title {
   position: relative;
   @include font($fontMediumSize, $purewhite, $fontSemiBoldWeight);
   @include bp('sm') {
     @include font($fontBigSize, $purewhite, $fontSemiBoldWeight);
-  }
-  &:after {
-    @include overlayHorizontal()
   }
 }
 .item {
@@ -137,9 +138,19 @@ export default {
 }
 
 .isActive {
-  .title {
+  .hero {
     &:after {
-    @include overlayHorizontalHide()
+      @include overlayHorizontalHide()
+    }
+  }
+  .title {
+    &:before {
+    position: absolute;
+    right: 0;
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: $greenmain;
     }
   }
   .item {

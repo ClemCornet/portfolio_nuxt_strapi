@@ -1,17 +1,18 @@
 <template>
-  <div>
+  <Grid :template-columns="$isMobile ? '1fr' : '2fr 4fr'">
     <slot name="image" />
     <slot />
     <slot name="subtitle" />
-  </div>
+  </Grid>
 </template>
 
 <script>
+import Grid from '@/components/Grid.vue'
+
 export default {
-  name: 'Hero'
+  name: 'Hero',
+  components: {
+    Grid
+  }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

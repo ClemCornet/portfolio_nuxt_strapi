@@ -9,9 +9,7 @@
       </h1>
     </Hero>
     <Tabs :class="$style.tabs" :projects="projects.length" @currentProject="getCurrent" />
-    <transition name="fade" mode="out-in">
-      <component :is="currentProject" :current-project="currentProject" :current-index="currentIndex" />
-    </transition>
+    <component :is="currentProject" :current-project="currentProject" :current-index="currentIndex" />
   </Grid>
 </template>
 
@@ -71,11 +69,11 @@ export default {
 <style lang="scss" module>
 
 .hero {
+  position: relative;
   margin-top: spacer(8);
-}
-
-.tabs {
-  align-self: center;
+  &:after {
+    @include overlayHorizontal((position: absolute, value: 0, delay: 2s));
+  }
 }
 
 .title {
@@ -84,19 +82,40 @@ export default {
   @include bp('sm') {
     @include font($fontBigSize, $purewhite, $fontSemiBoldWeight);
   }
-  &:after {
-    @include overlayHorizontal()
-  }
 }
 
 .subtitle {
   @include font($fontSmallSize, $purewhite, $fontRegularWeight);
 }
 
+.tabs {
+  position: relative;
+  align-self: center;
+  padding: spacer(2) 0;
+  &:after {
+    @include overlayHorizontal((position: absolute, value: 0, delay: 2s));
+  }
+}
+
 .isActive {
-  .title {
+  .hero {
     &:after {
-    @include overlayHorizontalHide()
+      @include overlayHorizontalHide();
+    }
+  }
+  .title {
+    &:before {
+    position: absolute;
+    right: 0;
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: $greenmain;
+    }
+  }
+  .tabs {
+    &:after {
+      @include overlayHorizontalHide();
     }
   }
 }

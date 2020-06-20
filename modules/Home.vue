@@ -1,7 +1,11 @@
 <template>
   <div :class="{[$style.isActive]: active}">
-    <Hero :class="[$style.hero]">
-      <template #image>
+    <Grid
+      :template-columns="$isMobile ? '1fr' : '2fr 4fr'"
+      template-rows="1fr 1fr 1fr"
+      :class="$style.hero"
+    >
+      <div :class="$style.titleImage">
         <TitleImage
           source="title_frontend"
           alt="title frontend"
@@ -9,30 +13,28 @@
           :width="620"
           :height="99"
         />
-      </template>
+      </div>
       <h1 :class="$style.title">
         {{ content.title | capitalize }}
       </h1>
-      <template #subtitle>
-        <p :class="$style.subtitle">
-          {{ content.subtitle }}
-        </p>
-      </template>
-    </Hero>
+      <p :class="$style.subtitle">
+        {{ content.subtitle }}
+      </p>
+    </Grid>
     <MySelf :class="$style.myself" :description="content.description" />
   </div>
 </template>
 
 <script>
 import { activeMixin } from './activeMixin.js'
-import Hero from '@/components/Hero.vue'
+// import Hero from '@/components/Hero.vue'
 import TitleImage from '@/components/Image.vue'
 import MySelf from '@/components/MySelf.vue'
 
 export default {
   name: 'Home',
   components: {
-    Hero,
+    // Hero,
     TitleImage,
     MySelf
   },
