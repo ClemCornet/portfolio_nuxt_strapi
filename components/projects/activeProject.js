@@ -1,15 +1,16 @@
 export const activeProject = {
   data() {
     return {
-      active: false
+      isActive: false,
+      isInactive: true
     }
   },
   methods: {
-    isActive() {
+    switchProject() {
       if (this.name === this.currentProject) {
         setTimeout(() => {
-          this.active = !this.active
-        }, 500)
+          this.isActive = !this.isActive
+        }, 1000)
       }
     }
   }

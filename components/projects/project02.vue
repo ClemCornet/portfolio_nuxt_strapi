@@ -1,7 +1,7 @@
 <template>
   <Grid
     :template-columns="$isMobile ? '1fr' : '1fr 1fr'"
-    :class="['containerProject', {['isActive']: active}]"
+    :class="['containerProject', {['isActive']: isActive}]"
   >
     <div class="leftSide">
       <div>
@@ -75,7 +75,7 @@ export default {
     }
   },
   created() {
-    this.isActive()
+    this.switchProject()
   }
 }
 </script>

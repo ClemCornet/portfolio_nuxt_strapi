@@ -1,41 +1,45 @@
 <template>
-  <div :class="{[$style.isActive]: active}">
-    <Grid
-      :template-columns="$isMobile ? '1fr' : '2fr 4fr'"
-      template-rows="1fr 1fr 1fr"
-      :class="$style.hero"
-    >
-      <div :class="$style.titleImage">
-        <TitleImage
-          source="title_frontend"
-          alt="title frontend"
-          :class="$style.image"
-          :width="620"
-          :height="99"
-        />
-      </div>
+  <Grid
+    :template-columns="$isMobile ? '1fr' : '3fr 1fr'"
+    template-rows="1fr 1fr"
+    :class="{[$style.isActive]: active}"
+  >
+    <div :class="$style.containerTitles">
+      <TitleImage
+        source="title_frontend"
+        alt="title frontend"
+        :class="$style.image"
+        :width="620"
+        :height="99"
+      />
       <h1 :class="$style.title">
         {{ content.title | capitalize }}
       </h1>
       <p :class="$style.subtitle">
         {{ content.subtitle }}
       </p>
-    </Grid>
+    </div>
+    <SocialWrapper
+      :class="$style.social"
+      :active="active"
+    />
     <MySelf :class="$style.myself" :description="content.description" />
-  </div>
+  </Grid>
 </template>
 
 <script>
 import { activeMixin } from './activeMixin.js'
-// import Hero from '@/components/Hero.vue'
+import Grid from '@/components/Grid.vue'
 import TitleImage from '@/components/Image.vue'
+import SocialWrapper from '@/components/SocialWrapper.vue'
 import MySelf from '@/components/MySelf.vue'
 
 export default {
   name: 'Home',
   components: {
-    // Hero,
+    Grid,
     TitleImage,
+    SocialWrapper,
     MySelf
   },
   mixins: [activeMixin],
@@ -63,15 +67,17 @@ export default {
 
 <style lang="scss" module>
 
-.hero {
-  margin-top: spacer(8)
-}
-
 .image {
   position: relative;
   &:after {
     @include overlayHorizontal((position: absolute, value: 0, delay: 1s));
   }
+}
+
+.containerTitles {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  margin-top: spacer(8);
 }
 
 .title {
@@ -96,28 +102,30 @@ export default {
 }
 
 .myself {
-  margin-top: spacer(12);
+  grid-row-start: 2;
+  grid-column-start: 1;
+  align-self: center;
+  margin-left: spacer(2);
   position: relative;
     &:after {
      @include overlayHorizontal((position: absolute, value: 0, delay: 2s));
    }
 }
 
-.main {
-  grid-row-start: 2;
-  grid-column-start: 2;
+.social {
+  align-self: top;
 }
 
 .isActive {
   .title {
     &:after {
       @include overlayHorizontalHide
-      }
+    }
   }
   .subtitle {
     &:after {
       @include overlayHorizontalHide
-      }
+    }
   }
 
   .image {

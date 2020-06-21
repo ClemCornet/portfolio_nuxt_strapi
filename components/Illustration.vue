@@ -19,10 +19,8 @@ export default {
   computed: {
     src() {
       try {
-        // eslint-disable-next-line import/no-dynamic-require, global-require, prefer-template
         return require('@/assets/illustrations/' + this.name + '.svg')
       } catch (e) {
-        // eslint-disable-next-line import/no-dynamic-require, global-require, prefer-template
         return require('@/assets/illustrations/' + this.fallback + '.svg')
       }
     }

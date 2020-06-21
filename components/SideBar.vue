@@ -42,6 +42,7 @@ export default {
 </script>
 
 <style lang="scss" module>
+
 .container {
   user-select: none;
   display: flex;
@@ -112,10 +113,10 @@ export default {
   border: 0.01rem solid $purewhite;
   border-radius: 50%;
   transition: all 0.5s ease-in-out;
-    &.active {
-      opacity: 1;
-      transform: scale(1);
-    }
+  &.active {
+    opacity: 1;
+    transform: scale(1);
   }
+}
 
 </style>

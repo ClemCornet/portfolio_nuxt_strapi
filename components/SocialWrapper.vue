@@ -1,6 +1,12 @@
 <template>
-  <Flex align="flex-end" justify="flex-end">
-    <Flex :class="$style.wrapperButton">
+  <Flex
+    align="flex-start"
+    justify="flex-end"
+  >
+    <Flex
+      direction="column"
+      :class="$style.wrapperButton"
+    >
       <SocialButton
         v-for="network in social"
         :key="network.id"
@@ -41,30 +47,28 @@ export default {
   },
   methods: {
     isActive() {
-      if (this.active) {
-        setTimeout(() => {
-          this.show = this.active
-        }, 1500)
-      }
+      setTimeout(() => {
+        this.show = true
+      }, 2000)
     }
   }
 }
 </script>
 
 <style lang="scss" module>
+
+.wrapperButton {
+  margin-top: spacer(8);
+  margin-right: spacer(2);
+}
+
 .button {
   transform: scale(0);
   transition: transform 0.7s ease-in-out;
+  margin-bottom: spacer(4);
   &.active {
     transform: scale(1);
   }
 }
-.title {
-    color: white;
-    text-align: center;
-}
 
-.wrapperButton {
-    margin-bottom: spacer(4);
-}
 </style>

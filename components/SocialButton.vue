@@ -33,7 +33,7 @@ export default {
   margin: 0 spacer(3);
   padding: spacer(0.8) spacer(2);
   position: relative;
-  &:before{
+  &:before {
     content: "";
     display: block;
     position: absolute;
@@ -45,7 +45,7 @@ export default {
     top: 0;
     transition: border .2s ease-in;
   }
-   &:after{
+   &:after {
     content: "";
     display: block;
     position: absolute;
@@ -57,7 +57,7 @@ export default {
     bottom: 0;
     transition: border .2s ease-in;
   }
-    &:hover {
+  &:hover {
     &:before {
       border: 1px solid white;
       border-bottom: 0;
@@ -67,15 +67,15 @@ export default {
       border-top: 0;
     }
     .icon {
-          &:after {
+      &:after {
       background-color: $greenmain;
-    }
+      }
     }
   }
 }
 
 .icon {
-    &:after {
+  &:after {
     content: "";
     right: 0;
     bottom: 0;
@@ -88,4 +88,5 @@ export default {
     z-index: 1000;
   }
 }
+
 </style>

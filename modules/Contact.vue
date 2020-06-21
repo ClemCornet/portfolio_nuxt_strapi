@@ -36,6 +36,7 @@ export default {
 </script>
 
 <style lang="scss" module>
+
 .hero {
   margin-top: spacer(8);
 }
@@ -49,4 +50,5 @@ export default {
 .subtitle {
   @include font($fontSmallSize, $purewhite, $fontRegularWeight);
 }
+
 </style>

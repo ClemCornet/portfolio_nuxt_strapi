@@ -1,8 +1,13 @@
-.containerProject {
-    position: relative;
+.isInactive {
+  &.containerProject {
     &:after {
-    @include overlayHorizontal((position: absolute, value: 0, delay: 2.2s))
+    @include overlayHorizontal((position: absolute, value: 0, delay: 1.5s))
+    }
   }
+}
+
+.containerProject {
+  position: relative;
 }
 
 .leftSide {

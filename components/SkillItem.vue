@@ -80,28 +80,29 @@ export default {
   }
 }
 
-  .item {
-    &.bordered {
-      &:before {
-      position: absolute;
-      content: '';
-      right: 0;
-      width: 1px;
-      height: 100%;
-      background-color: $purewhite;
-      }
+.item {
+  &.bordered {
+    &:before {
+    position: absolute;
+    content: '';
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background-color: $purewhite;
     }
   }
+}
 
 .description {
-    @include paragraph();
-    margin-top: spacer(4);
+  @include paragraph();
+  margin-top: spacer(4);
 }
 
 .button {
-    align-self: flex-end;
-    font-size: $fontMediumSize;
-    color: $purewhite;
-    cursor: pointer;
+  align-self: flex-end;
+  font-size: $fontMediumSize;
+  color: $purewhite;
+  cursor: pointer;
 }
+
 </style>

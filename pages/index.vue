@@ -12,19 +12,18 @@
       :is="currentPage"
       :current="currentPage"
     />
-    <SocialWrapper
+    <ScrollIcon
       v-if="currentPage === 'Home'"
       :active="currentIndex === 0"
-      :class="$style.social"
     />
   </Grid>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import ScrollIcon from '@/components/ScrollIcon.vue'
 import Grid from '@/components/Grid.vue'
 import SideBar from '@/components/SideBar.vue'
-import SocialWrapper from '@/components/SocialWrapper.vue'
 import Home from '@/modules/Home.vue'
 import Skills from '@/modules/Skills.vue'
 import Projects from '@/modules/Projects.vue'
@@ -36,7 +35,7 @@ export default {
   components: {
     Grid,
     SideBar,
-    SocialWrapper,
+    ScrollIcon,
     Home,
     Skills,
     Projects,
@@ -97,6 +96,7 @@ export default {
 </script>
 
 <style lang="scss" module>
+
 .wrapper {
   height: 100vh;
 }
@@ -104,4 +104,5 @@ export default {
 .sidebar {
   grid-row-end: span 2;
 }
+
 </style>

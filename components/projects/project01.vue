@@ -1,7 +1,7 @@
 <template>
   <Grid
     :template-columns="$isMobile ? '1fr' : '1fr 1fr'"
-    :class="['containerProject', {['isActive']: active}]"
+    :class="['containerProject', {['isInactive']: isInactive}, {['isActive']: isActive}]"
   >
     <div class="leftSide">
       <div>
@@ -30,6 +30,7 @@
         <p class="resume">
           {{ project.resume }}
         </p>
+        <a @click="isActive">Un super test</a>
       </div>
     </div>
     <div class="rightSide">
@@ -75,7 +76,8 @@ export default {
     }
   },
   created() {
-    this.isActive()
+    this.isInactive = !this.isInactive
+    this.switchProject()
   }
 }
 </script>

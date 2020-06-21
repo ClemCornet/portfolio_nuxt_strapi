@@ -106,9 +106,11 @@ export default {
 </script>
 
 <style lang="scss" module>
+
 .wrapper {
   height: 100vh;
 }
+
 .hero {
   position: relative;
   margin-top: spacer(8);
@@ -116,6 +118,7 @@ export default {
     @include overlayHorizontal((position: absolute, value: 0, delay: 2s))
   }
 }
+
 .title {
   position: relative;
   @include font($fontMediumSize, $purewhite, $fontSemiBoldWeight);
@@ -123,6 +126,7 @@ export default {
     @include font($fontBigSize, $purewhite, $fontSemiBoldWeight);
   }
 }
+
 .item {
   position: relative;
   padding-right: spacer(4);
@@ -133,6 +137,7 @@ export default {
     @include overlayVertical()
   }
 }
+
  .skills {
    height: 100%;
 }
@@ -143,20 +148,23 @@ export default {
       @include overlayHorizontalHide()
     }
   }
-  .title {
-    &:before {
+
+.title {
+  &:before {
     position: absolute;
     right: 0;
     content: '';
     width: 10px;
     height: 10px;
     background: $greenmain;
-    }
   }
-  .item {
-    &:after {
+}
+
+.item {
+  &:after {
     @include overlayVerticalHide()
     }
   }
 }
+
 </style>

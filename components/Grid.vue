@@ -23,7 +23,9 @@ export default {
 }
 </script>
 <style lang="scss" module>
+
 .container {
   display: grid;
 }
+
 </style>

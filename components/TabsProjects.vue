@@ -25,9 +25,6 @@ export default {
       currentIndex: 0
     }
   },
-  // mounted() {
-  //   this.selectProject(0)
-  // },
   methods: {
     selectProject(i) {
       this.currentIndex = i
@@ -38,6 +35,7 @@ export default {
 </script>
 
 <style lang="scss" module>
+
 .nav {
   display: flex;
   width: 35%;
@@ -52,4 +50,5 @@ export default {
     background: $greenmain;
   }
 }
+
 </style>

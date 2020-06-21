@@ -82,7 +82,4 @@ export default {
   }
 }
 
-.description {
-
-}
 </style>

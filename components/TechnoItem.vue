@@ -38,6 +38,7 @@ export default {
 </script>
 
 <style lang="scss" module>
+
 .item {
   margin: 0 spacer(3) spacer(2) 0;
 }
@@ -69,4 +70,5 @@ export default {
     }
   }
 }
+
 </style>

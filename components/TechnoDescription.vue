@@ -42,6 +42,7 @@ export default {
 </script>
 
 <style lang="scss" module>
+
 .wrapperRight {
   padding: 0 spacer(6);
   height: 60%;
@@ -72,4 +73,5 @@ export default {
     @include font($fontSmallSize, $purewhite, $fontRegularWeight);
   }
 }
+
 </style>

@@ -3,11 +3,11 @@
     <Avatar
       source="avatar"
       :rounded="true"
-      :width="160"
-      :heigth="160"
+      :width="140"
+      :heigth="140"
       :class="$style.avatar"
     />
-    <p :class="[$style.description, {[$style.bordered]: $isMobile }]">
+    <p :class="[$style.description, $style.bordered]">
       {{ description }}
     </p>
   </Flex>
@@ -33,23 +33,17 @@ export default {
 </script>
 
 <style lang="scss" module>
+
 .description {
   @include paragraph();
   align-self: center;
-  padding-left: spacer(4);
+  margin-left: spacer(4);
+  padding-left: spacer(2);
   text-justify: right;
   width: 50%;
-
-}
-
-.bordered {
-  &:before {
-  content: '';
-  height: 15%;
-  width: 1px;
-  background: $greenmain;
-  position: absolute;
-  left: 20px;
+  &.bordered {
+    border-left: 2px solid $greenmain;
   }
 }
+
 </style>
