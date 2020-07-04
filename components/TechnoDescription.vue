@@ -1,6 +1,6 @@
 <template>
   <Flex direction="column" :class="$style.wrapperRight">
-    <Illustation :name="illustration" />
+    <Illustation width="200" height="150" :name="illustration" />
     <div :class="$style.title">
       {{ title }}
     </div>

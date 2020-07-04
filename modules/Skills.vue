@@ -3,7 +3,10 @@
     :class="[$style.wrapper, { [$style.isActive]: active }]"
     :template-rows="$isMobile ? '1fr' : '1fr 1fr 1fr'"
   >
-    <Hero :class="$style.hero">
+    <Hero
+      v-if="!isCollapsed"
+      :class="$style.hero"
+    >
       <h1 :class="$style.title">
         {{ 'Skills' | capitalize }}
       </h1>
@@ -26,13 +29,14 @@
       v-if="isCollapsed"
       v-bind="collapsedSkill"
       :idx="idxCollapsed"
+      :is-loaded="loadedTechnos"
       @reduce="toggle"
     />
   </Grid>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import { activeMixin } from './activeMixin.js'
 import Hero from '@/components/Hero.vue'
 import SkillItem from '@/components/SkillItem.vue'
@@ -56,14 +60,14 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-      isCollapsed: false,
-      idxCollapsed: null
-    }
-  },
+  // data() {
+  //   return {
+  //     isCollapsed: false,
+  //     idxCollapsed: null
+  //   }
+  // },
   computed: {
-    ...mapGetters('skills', ['skills']),
+    ...mapGetters('skills', ['skills', 'isCollapsed', 'idxCollapsed', 'loadedTechnos']),
     collapsedSkill() {
       return this.$store.getters['skills/collapsedSkill'](this.idxCollapsed)
     }
@@ -72,12 +76,18 @@ export default {
     this.isActive()
   },
   methods: {
+    ...mapActions('skills', ['collapseSkill']),
     collapsed(idx) {
-      this.toggle()
-      this.idxCollapsed = idx
+      this.toggle(idx)
+      // this.isActive()
+      // this.idxCollapsed = idx
     },
-    toggle() {
-      this.isCollapsed = !this.isCollapsed
+    toggle(idx) {
+      this.collapseSkill(idx)
+      // this.isCollapsed = !this.isCollapsed
+      // setTimeout(() => {
+      //   this.active = !this.active
+      // }, 500)
     }
   }
 }

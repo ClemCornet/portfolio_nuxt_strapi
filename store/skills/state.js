@@ -1,4 +1,8 @@
 export default () => ({
+  duration: 500,
+  isCollapsed: false,
+  loadedTechnos: false,
+  idxCollapsed: null,
   skills: [
     {
       id: 0,
@@ -85,6 +89,16 @@ export default () => ({
           name: 'Express.js',
           description: 'Framework Node.js',
           image: 'express'
+        },
+        {
+          name: 'MySQL',
+          description: 'Relationnal database',
+          image: 'mysql'
+        },
+        {
+          name: 'MySQL',
+          description: 'Relationnal database',
+          image: 'mysql'
         },
         {
           name: 'MySQL',

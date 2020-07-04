@@ -4,5 +4,14 @@ export default {
   },
   collapsedSkill: state => (idx) => {
     return state.skills[idx]
+  },
+  idxCollapsed(state) {
+    return state.idxCollapsed
+  },
+  isCollapsed(state) {
+    return state.isCollapsed
+  },
+  loadedTechnos(state) {
+    return state.loadedTechnos
   }
 }
