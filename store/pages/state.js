@@ -1,10 +1,10 @@
 export default () => ({
   currentIndex: 0,
-  isPageChanging: false,
   duration: 500,
   pages: [
     {
       id: 1,
+      active: false,
       name: 'MySelf',
       component: 'Home',
       title: 'Developer',
@@ -14,6 +14,7 @@ export default () => ({
     },
     {
       id: 2,
+      active: false,
       name: 'Skills',
       component: 'Skills',
       skills: [
@@ -39,12 +40,14 @@ export default () => ({
     },
     {
       id: 3,
+      active: false,
       name: 'Projects',
       component: 'Projects',
       title: 'Projects'
     },
     {
       id: 4,
+      active: false,
       name: 'Contact',
       component: 'Contact',
       title: 'Contact'

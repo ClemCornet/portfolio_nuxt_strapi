@@ -49,11 +49,11 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-      isLoaded: false
-    }
-  },
+  // data() {
+  //   return {
+  //     isLoaded: false
+  //   }
+  // },
   computed: {
     content() {
       return this.$store.getters['pages/content'](this.current)

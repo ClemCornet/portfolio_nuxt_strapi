@@ -1,9 +1,11 @@
 export default {
-  collapseSkill({ commit, state: { duration } }, index) {
+  collapseSkill({ commit }, index) {
+    commit('ACTIVE_SKILL', index)
+    commit('COLLAPSE_SKILL')
+  },
+  loadTechnos({ commit, state: { duration } }) {
     setTimeout(() => {
       commit('LOAD_TECHNOS')
     }, duration)
-    commit('ACTIVE_SKILL', index)
-    commit('COLLAPSE_SKILL')
   }
 }

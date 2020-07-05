@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     collapsed() {
-      this.$emit('collapsed', this.id)
+      this.$emit('open', this.id)
     }
   }
 }
@@ -85,7 +85,7 @@ export default {
     &:before {
     position: absolute;
     content: '';
-    right: 0;
+    right: 1px;
     width: 1px;
     height: 100%;
     background-color: $purewhite;

@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import ImageNumber from '@/components/Image.vue'
 import TechnoItem from '@/components/TechnoItem.vue'
 import Grid from '@/components/Grid.vue'
@@ -82,24 +83,13 @@ export default {
       required: true
     }
   },
-  // data() {
-  //   return {
-  //     active: false
-  //   }
-  // },
-  // created() {
-  //   this.isActive()
-  // },
   methods: {
-    // isActive() {
-    //   if (this.id === this.idx) {
-    //     setTimeout(() => {
-    //       this.active = !this.active
-    //     }, 500)
-    //   }
-    // },
+    ...mapActions('skills', ['loadTechnos']),
     reduce() {
-      this.$emit('reduce')
+      this.loadTechnos()
+      setTimeout(() => {
+        this.$emit('reduce', this.idx)
+      }, 1200)
     }
   }
 }

@@ -22,7 +22,7 @@
         v-bind="skill"
         :class="[$style.item, { [$style.large]: index != 0 }]"
         :active="active"
-        @collapsed="collapsed"
+        @open="open"
       />
     </Flex>
     <SkillCollapsed
@@ -30,7 +30,7 @@
       v-bind="collapsedSkill"
       :idx="idxCollapsed"
       :is-loaded="loadedTechnos"
-      @reduce="toggle"
+      @reduce="close"
     />
   </Grid>
 </template>
@@ -60,12 +60,6 @@ export default {
       required: true
     }
   },
-  // data() {
-  //   return {
-  //     isCollapsed: false,
-  //     idxCollapsed: null
-  //   }
-  // },
   computed: {
     ...mapGetters('skills', ['skills', 'isCollapsed', 'idxCollapsed', 'loadedTechnos']),
     collapsedSkill() {
@@ -76,18 +70,17 @@ export default {
     this.isActive()
   },
   methods: {
-    ...mapActions('skills', ['collapseSkill']),
-    collapsed(idx) {
-      this.toggle(idx)
-      // this.isActive()
-      // this.idxCollapsed = idx
+    ...mapActions('skills', ['collapseSkill', 'loadTechnos']),
+    open(idx) {
+      this.isActive()
+      setTimeout(() => {
+        this.collapseSkill(idx)
+        this.loadTechnos()
+      }, 1500)
     },
-    toggle(idx) {
+    close(idx) {
       this.collapseSkill(idx)
-      // this.isCollapsed = !this.isCollapsed
-      // setTimeout(() => {
-      //   this.active = !this.active
-      // }, 500)
+      this.isActive()
     }
   }
 }
