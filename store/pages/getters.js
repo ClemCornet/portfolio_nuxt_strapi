@@ -5,10 +5,6 @@ export default {
   pages(state) {
     return state.pages
   },
-  isFading: state => (currentIndex) => {
-    const { pages } = state
-    return pages[currentIndex].active
-  },
   content: state => (currentPage) => {
     return state.pages.find(page => page.component === currentPage)
   },

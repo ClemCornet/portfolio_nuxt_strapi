@@ -50,9 +50,6 @@ export default {
   },
   computed: {
     ...mapGetters('pages', ['pages', 'currentIndex']),
-    // isFading() {
-    //   return this.$store.getters['pages/isFading'](this.currentIndex)
-    // },
     getPageComp() {
       let components = []
       this.pages.map(({ component }) => {

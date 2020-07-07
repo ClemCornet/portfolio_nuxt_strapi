@@ -2,7 +2,7 @@
   <Grid
     :template-columns="$isMobile ? '1fr' : '2fr 1fr'"
     template-row="5fr 1fr"
-    :class="[$style.wrapper, { [$style.active]: isLoaded }]"
+    :class="[$style.wrapper, { [$style.active]: isFading }]"
   >
     <div :class="$style.header">
       <Flex>
@@ -78,7 +78,7 @@ export default {
       type: Number,
       required: true
     },
-    isLoaded: {
+    isFading: {
       type: Boolean,
       required: true
     }

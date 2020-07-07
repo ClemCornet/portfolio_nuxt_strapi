@@ -29,7 +29,7 @@
       v-if="isCollapsed"
       v-bind="collapsedSkill"
       :idx="idxCollapsed"
-      :is-loaded="loadedTechnos"
+      :is-fading="isFading"
       @reduce="close"
     />
   </Grid>
@@ -37,7 +37,6 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-// import { activeMixin } from './activeMixin.js'
 import Hero from '@/components/Hero.vue'
 import SkillItem from '@/components/SkillItem.vue'
 import Grid from '@/components/Grid.vue'
@@ -53,7 +52,6 @@ export default {
     SkillItem,
     SkillCollapsed
   },
-  // mixins: [activeMixin],
   props: {
     current: {
       type: String,
@@ -64,27 +62,38 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      isFading: false
+    }
+  },
   computed: {
     ...mapGetters('skills', ['skills', 'isCollapsed', 'idxCollapsed', 'loadedTechnos']),
     collapsedSkill() {
       return this.$store.getters['skills/collapsedSkill'](this.idxCollapsed)
     }
   },
-  // mounted() {
-  //   this.isActive()
-  // },
+  destroyed() {
+    this.collapseSkill(this.idxCollapsed)
+  },
   methods: {
     ...mapActions('skills', ['collapseSkill', 'loadTechnos']),
     open(idx) {
-      this.isActive()
       setTimeout(() => {
         this.collapseSkill(idx)
-        this.loadTechnos()
-      }, 1500)
+      }, 500)
+      setTimeout(() => {
+        this.fadeTechnos()
+      }, 1000)
     },
     close(idx) {
-      this.collapseSkill(idx)
-      this.isActive()
+      this.fadeTechnos()
+      setTimeout(() => {
+        this.collapseSkill(idx)
+      }, 1000)
+    },
+    fadeTechnos() {
+      this.isFading = !this.isFading
     }
   }
 }
