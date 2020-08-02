@@ -14,29 +14,29 @@ export default () => ({
       bordered: true,
       technos: [
         {
+          name: 'Vue.js',
+          image: 'vuejs',
+          description: 'lorem ipusm lorem ipsum sdfsdf'
+        },
+        {
           name: 'Nuxt.js',
           image: 'nuxtjs',
-          degrees: 0
+          description: 'lorem ipusm lorem ipsum sdfsdf'
         },
         {
           name: 'React.js',
           image: 'reactjs',
-          degrees: 72
+          description: 'lorem ipusm lorem ipsum sdfsdf'
         },
         {
           name: 'SASS',
           image: 'sass',
-          degrees: 144
+          description: 'lorem ipusm lorem ipsum sdfsdf'
         },
         {
           name: 'Tailwind',
           image: 'tailwind',
-          degrees: 216
-        },
-        {
-          name: 'Vue.js',
-          image: 'vuejs',
-          degrees: 288
+          description: 'lorem ipusm lorem ipsum sdfsdf'
         }
       ]
     },
@@ -50,24 +50,24 @@ export default () => ({
       bordered: true,
       technos: [
         {
-          name: 'MySQL',
-          image: 'mysql',
-          degrees: 90
+          name: 'Node.js',
+          image: 'nodejs',
+          description: 'lorem ipusm lorem ipsum sdfsdf'
         },
         {
           name: 'Express.js',
           image: 'express',
-          degrees: 180
-        },
-        {
-          name: 'Node.js',
-          image: 'nodejs',
-          degrees: 270
+          description: 'lorem ipusm lorem ipsum sdfsdf'
         },
         {
           name: 'MongoDB',
           image: 'mongodb',
-          degrees: 360
+          description: 'lorem ipusm lorem ipsum sdfsdf'
+        },
+        {
+          name: 'MySQL',
+          image: 'mysql',
+          description: 'lorem ipusm lorem ipsum sdfsdf'
         }
       ]
     },
@@ -81,24 +81,24 @@ export default () => ({
       bordered: false,
       technos: [
         {
-          name: 'Illustrator',
-          image: 'illustrator',
-          degrees: 90
+          name: 'Figma',
+          image: 'figma',
+          description: 'lorem ipusm lorem ipsum sdfsdf'
         },
         {
           name: 'Adobe XD',
           image: 'adobexd',
-          degrees: 180
-        },
-        {
-          name: 'Figma',
-          image: 'figma',
-          degrees: 270
+          description: 'lorem ipusm lorem ipsum sdfsdf'
         },
         {
           name: 'Photoshop',
           image: 'photoshop',
-          degrees: 360
+          description: 'lorem ipusm lorem ipsum sdfsdf'
+        },
+        {
+          name: 'Illustrator',
+          image: 'illustrator',
+          description: 'lorem ipusm lorem ipsum sdfsdf'
         }
       ]
     }

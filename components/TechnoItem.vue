@@ -1,18 +1,27 @@
 <template>
-  <div
-    :class="$style.item"
-    :style="`transform: rotate(${degrees}deg) translate(${trans}em ) rotate(-${degrees}deg`"
-  >
-    <img :class="$style.image" :src="require(`@/assets/images/technos/${image}.jpg`)" alt="logo_technologies">
-    <p :class="$style.description">
-      {{ name }}
-    </p>
-  </div>
+  <Flex :class="$style.item">
+    <div :class="$style.left">
+      <img :class="$style.image" :src="require(`@/assets/images/technos/${image}.jpg`)" alt="logo">
+    </div>
+    <div :class="$style.right">
+      <h3 :class="$style.title">
+        {{ name }}
+      </h3>
+      <p :class="$style.description">
+        {{ description }}
+      </p>
+    </div>
+  </Flex>
 </template>
 
 <script>
+import Flex from '@/components/Flex.vue'
+
 export default {
   name: 'TechnoItem',
+  components: {
+    Flex
+  },
   props: {
     image: {
       type: String,
@@ -22,18 +31,9 @@ export default {
       type: String,
       required: true
     },
-    degrees: {
-      type: Number,
-      required: true
-    },
     description: {
       type: String,
       required: true
-    }
-  },
-  computed: {
-    trans() {
-      return this.$mq === 'xl' ? 14.5 : 13.5
     }
   }
 }
@@ -42,37 +42,34 @@ export default {
 <style lang="scss" module>
 
 .item {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 8em; height: 8em;
-  margin: -3.5em;
-  text-align: center;
-  text-decoration: none;
-  box-sizing: border-box;
-  &:hover {
-    .image {
-      transform: scale(1.2);
-    }
-    .description {
-      opacity: 1;
-    }
-  }
+  width: 600px;
+  height: 100px;
+  margin-top: spacer(3);
+  padding: spacer(2) 0 spacer(4) spacer(2);
+  border-radius: 15px;
+  background: $bluedarklight;
+}
+
+.left {
+  margin-right: spacer(4);
+}
+
+.right {
+  padding-top: spacer(1);
 }
 
 .image {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  transition: transform .2s;
+}
+
+.title {
+  @include font(1.2rem, $greenmain, $fontSemiBoldWeight);
 }
 
 .description {
-  z-index: 10;
-  @include font(1.2rem, $purewhite, $fontSemiBoldWeight);
-  opacity: 0;
-  transition: opacity .3s;
+  @include font($fontSmallSize, $purewhite, $fontLightWeight);
 }
 
 </style>

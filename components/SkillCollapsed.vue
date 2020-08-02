@@ -33,14 +33,11 @@
       <ArrowLeft />
     </div>
     <div :class="$style.listitem">
-      <div :class="$style.circleMenu">
-        <TechnoItem
-          v-for="techno in technos"
-          :key="techno.name"
-          :class="$style.technoitem"
-          v-bind="techno"
-        />
-      </div>
+      <TechnoItem
+        v-for="techno in technos"
+        :key="techno.name"
+        v-bind="techno"
+      />
     </div>
   </Grid>
 </template>
@@ -169,27 +166,14 @@ export default {
 
 .listitem {
   &:after {
-    @include overlayHorizontal((position: absolute, value: 0, delay: 2s));
+    @include overlayHorizontal((position: absolute, value: 0, delay: 1.5s));
   }
   position: relative;
   grid-row-start: 2;
   grid-column-start: 2;
-  justify-self: stretch;
+  justify-self: center;
   height: 100%;
   margin-top: spacer(2);
-}
-
-.circleMenu {
-  position: relative;
-  width: 28em;
-  height: 28em;
-  @media (min-width: 1450px) {
-    width: 30em;
-    height: 30em;
-  }
-  border: solid 2px $greenmain;
-  border-radius: 50%;
-  margin: 5em auto 7em;
 }
 
 .active {
