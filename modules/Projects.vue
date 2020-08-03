@@ -8,8 +8,17 @@
         {{ 'Projets' | capitalize }}
       </h1>
     </Hero>
-    <Tabs :class="$style.tabs" :projects="projects.length" @currentProject="getCurrent" />
-    <component :is="currentProject" :current-project="currentProject" :current-index="currentIndex" />
+    <Tabs :class="$style.tabs" :projects="chunkProjects.length" @currentPage="getCurrentPage" />
+    <Grid
+      template-rows="1fr 1fr"
+      template-columns="1fr 1fr"
+    >
+      <ProjectItem
+        v-for="project in currentPage"
+        :key="project.id"
+        v-bind="project"
+      />
+    </Grid>
   </Grid>
 </template>
 
@@ -18,11 +27,7 @@ import { mapGetters } from 'vuex'
 import Grid from '@/components/Grid.vue'
 import Hero from '@/components/Hero.vue'
 import Tabs from '@/components/TabsProjects.vue'
-import Project01 from '@/components/projects/project01.vue'
-import Project02 from '@/components/projects/project02.vue'
-import Project03 from '@/components/projects/project03.vue'
-import Project04 from '@/components/projects/project04.vue'
-import Project05 from '@/components/projects/project05.vue'
+import ProjectItem from '@/components/ProjectItem.vue'
 
 export default {
   name: 'Projects',
@@ -30,11 +35,7 @@ export default {
     Hero,
     Grid,
     Tabs,
-    Project01,
-    Project02,
-    Project03,
-    Project04,
-    Project05
+    ProjectItem
   },
   props: {
     current: {
@@ -55,10 +56,16 @@ export default {
     ...mapGetters('projects', ['projects']),
     currentProject() {
       return this.projects[this.currentIndex].component
+    },
+    chunkProjects() {
+      return this.$store.getters['projects/chunkProject'](4)
+    },
+    currentPage() {
+      return this.chunkProjects[this.currentIndex]
     }
   },
   methods: {
-    getCurrent(idx) {
+    getCurrentPage(idx) {
       this.currentIndex = idx
     }
   }

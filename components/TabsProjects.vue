@@ -1,19 +1,26 @@
 <template>
   <div>
-    <ul :class="$style.nav">
-      <li
+    <!-- <ul :class="$style.nav"> -->
+    <Flex>
+      <div
         v-for="n in projects"
         :key="n"
         :class="[$style.itemNav, {[$style.isActive]: n - 1 === currentIndex}]"
-        @click="selectProject(n - 1)"
+        @click="selectProject(n -1)"
       />
-    </ul>
+    </Flex>
+    <!-- </ul> -->
   </div>
 </template>
 
 <script>
+import Flex from '@/components/Flex.vue'
+
 export default {
   name: 'TabsProjects',
+  components: {
+    Flex
+  },
   props: {
     projects: {
       type: Number,
@@ -26,9 +33,9 @@ export default {
     }
   },
   methods: {
-    selectProject(i) {
-      this.currentIndex = i
-      this.$emit('currentProject', i)
+    selectProject(idx) {
+      this.currentIndex = idx
+      this.$emit('currentPage', idx)
     }
   }
 }

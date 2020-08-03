@@ -59,6 +59,18 @@ export default () => ({
       resume:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fringilla lacus non condimentum sodales. Donec mollis sapien vitae augue commodo, vel accumsan est venenatis.',
       image: 'osteopathe'
+    },
+    {
+      id: 6,
+      component: 'project06',
+      title: 'Film en plein air',
+      type: 'showcase website',
+      context: 'school project',
+      year: '2018',
+      technos: ['HTML', 'CSS', 'Bootstrap'],
+      resume:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fringilla lacus non condimentum sodales. Donec mollis sapien vitae augue commodo, vel accumsan est venenatis.',
+      image: 'osteopathe'
     }
   ]
 })
