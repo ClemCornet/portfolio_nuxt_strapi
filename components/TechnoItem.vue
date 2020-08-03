@@ -43,18 +43,25 @@ export default {
 
 .item {
   width: 600px;
-  height: 100px;
+  height: auto;
   margin-top: spacer(3);
   padding: spacer(2) 0 spacer(4) spacer(2);
   border-radius: 15px;
   background: $bluedarklight;
+  @include shadow-lg;
+  transition: transform 0.1s ease;
+  cursor: pointer;
+  &:hover {
+    transform: translateY(-3px);
+  }
 }
 
 .left {
-  margin-right: spacer(4);
+  flex: 1;
 }
 
 .right {
+  flex: 5;
   padding-top: spacer(1);
 }
 

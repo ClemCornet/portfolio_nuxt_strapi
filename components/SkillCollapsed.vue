@@ -3,7 +3,6 @@
     :template-columns="$isMobile ? '1fr' : '1fr 5fr 1fr'"
     template-row="5fr 1fr"
     justify-items="center"
-    align-content="center"
     :class="[$style.wrapper, { [$style.active]: isFading }]"
   >
     <div :class="$style.header">
@@ -29,8 +28,11 @@
         </flex>
       </flex>
     </div>
-    <div :class="[$style.button, { [$style.active]: isFading }]" @click="reduce">
-      <ArrowLeft />
+    <div :class="[$style.button, { [$style.active]: isFading }]" @click.once="reduce">
+      <ArrowLeft :class="$style.arrow" />
+      <div :class="$style.text">
+        {{ 'Back' | capitalize }}
+      </div>
     </div>
     <div :class="$style.listitem">
       <TechnoItem
@@ -108,8 +110,9 @@ export default {
 
 .header {
   position: relative;
+  align-self: center;
   &:after {
-    @include overlayHorizontal((position: absolute, value: 0, delay: 0.5s));;
+    @include overlayHorizontal((position: absolute, value: 0, delay: 0.5s));
   }
   grid-column-start: 2;
 }
@@ -157,11 +160,27 @@ export default {
   &:after {
     @include overlayHorizontal((position: absolute, value: 0, delay: 0.5s));
   }
+  @include font(1.2rem, $greenmain, $fontMediumWeight);
   position: relative;
-  height: 40px;
+  display: flex;
   grid-row-start: 2;
   grid-column-start: 1;
   justify-self: end;
+  width: auto;
+  cursor: pointer;
+  height: 40px;
+  &:hover {
+    .arrow {
+      transform: translateX(-3px);
+    }
+  }
+  .arrow {
+    transition: transform 0.3s ease-in;
+    margin-top: spacer(1);
+  }
+  .text {
+    padding-left: spacer(2);
+  }
 }
 
 .listitem {

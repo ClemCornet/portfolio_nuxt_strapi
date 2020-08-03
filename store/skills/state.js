@@ -16,12 +16,14 @@ export default () => ({
         {
           name: 'Vue.js',
           image: 'vuejs',
-          description: 'lorem ipusm lorem ipsum sdfsdf'
+          description:
+            'Vue.js est le framework javascript que j\'utilise le plus. Je possède une solide experience sur la technologie et je continue d\'explorer toutes les possibilités qu\'offre la librairie.'
         },
         {
           name: 'Nuxt.js',
           image: 'nuxtjs',
-          description: 'lorem ipusm lorem ipsum sdfsdf'
+          description:
+            'Vue.js est le framework javascript que j\'utilise le plus. Je possède une solide experience sur la technologie et je continue d\'explorer toutes les possibilités qu\'offre la librairie.'
         },
         {
           name: 'React.js',
