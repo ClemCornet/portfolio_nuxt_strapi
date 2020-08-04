@@ -1,7 +1,6 @@
 <template>
   <div>
-    <!-- <ul :class="$style.nav"> -->
-    <Flex>
+    <Flex justify="center">
       <div
         v-for="n in projects"
         :key="n"
@@ -9,7 +8,6 @@
         @click="selectProject(n -1)"
       />
     </Flex>
-    <!-- </ul> -->
   </div>
 </template>
 
@@ -43,16 +41,12 @@ export default {
 
 <style lang="scss" module>
 
-.nav {
-  display: flex;
-  width: 35%;
-}
-
 .itemNav {
-  flex: 1;
+  width: 20px;
   height: 10px;
   border: solid 1px $greenmain;
   margin-right: spacer(2);
+  cursor: pointer;
   &.isActive {
     background: $greenmain;
   }

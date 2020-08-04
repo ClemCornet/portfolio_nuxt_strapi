@@ -3,7 +3,7 @@ export default () => ({
     {
       id: 1,
       component: 'project01',
-      title: 'FoodReview',
+      title: 'Food review',
       type: 'web application',
       context: 'school project',
       year: '2019',
@@ -27,7 +27,7 @@ export default () => ({
     {
       id: 3,
       component: 'project03',
-      title: 'DearCommunication',
+      title: 'Dear communication',
       type: 'showcase website',
       context: 'professional project',
       year: '2018',
@@ -39,7 +39,7 @@ export default () => ({
     {
       id: 4,
       component: 'project04',
-      title: 'Javascript BoardGame',
+      title: 'Javascript boardgame',
       type: 'browser game',
       context: 'school project',
       year: '2018',

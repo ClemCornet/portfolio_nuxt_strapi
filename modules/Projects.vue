@@ -1,7 +1,7 @@
 <template>
   <Grid
     :class="[$style.wrapper, {[$style.isActive]: active}]"
-    :template-rows="$isMobile ? '1fr' : '2fr 1fr 6fr'"
+    :template-rows="$isMobile ? '1fr' : '2fr 0.5fr 6fr'"
   >
     <Hero :class="$style.hero">
       <h1 :class="$style.title">
@@ -17,6 +17,7 @@
         v-for="project in currentPage"
         :key="project.id"
         v-bind="project"
+        :class="project.id % 2 === 0 ? $style.rightItem : $style.leftItem"
       />
     </Grid>
   </Grid>
@@ -96,11 +97,18 @@ export default {
 
 .tabs {
   position: relative;
-  align-self: center;
-  padding: spacer(2) 0;
+  align-self: flex-start;
   &:after {
     @include overlayHorizontal((position: absolute, value: 0, delay: 2s));
   }
+}
+
+.rightItem {
+  justify-self: flex-start;
+}
+
+.leftItem {
+  justify-self: flex-end;
 }
 
 .isActive {

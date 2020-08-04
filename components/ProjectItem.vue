@@ -1,14 +1,21 @@
 <template>
   <Flex :class="$style.item">
     <div :class="$style.left">
-      <h3>{{ title }}</h3>
-      <p>{{ type }}</p>
-      <ul>
-        <li v-for="techno in technos" :key="techno">
-          {{ techno }}
+      <h3 :class="$style.title">
+        {{ title }}
+      </h3>
+      <p :class="$style.type">
+        {{ type }}
+      </p>
+      <ul :class="$style.technos">
+        <li v-for="techno in technos" :key="techno" :class="$style.techno">
+          &nbsp;{{ techno }} |
         </li>
       </ul>
-      <p>{{ resume }}</p>
+      <Flex :class="$style.links">
+        <GithubLogo :class="$style.link" />
+        <WebsiteLogo :class="$style.link" />
+      </Flex>
     </div>
     <div :class="$style.right">
       <img :class="$style.image" :src="require(`@/assets/images/projects/${image}.png`)" alt="project">
@@ -18,11 +25,15 @@
 
 <script>
 import Flex from '@/components/Flex.vue'
+import GithubLogo from '@/assets/svg/Github.vue'
+import WebsiteLogo from '@/assets/svg/Website.vue'
 
 export default {
   name: 'ProjectItem',
   components: {
-    Flex
+    Flex,
+    GithubLogo,
+    WebsiteLogo
   },
   props: {
     title: {
@@ -50,8 +61,66 @@ export default {
 </script>
 
 <style lang="scss" module>
+.item {
+  background: $bluedarklight;
+  width: 70%;
+  height: 90%;
+  margin: 0 spacer(2);
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  @include shadow-lg;
+  transition: transform 0.1s ease;
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
 .left {
-    display: flex;
-    flex-direction: column;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: spacer(8) spacer(2) spacer(2) spacer(5);
+}
+
+.title {
+  @include font($fontMediumSize, $purewhite, $fontMediumWeight);
+}
+
+.type {
+  @include font(1.3rem, $greenmain, $fontRegularWeight);
+  line-height: 1.5;
+}
+
+.technos {
+  display: flex;
+}
+
+.techno {
+  @include font(1rem, $purewhite, $fontRegularWeight);
+  // border: 1px solid $purewhite;
+  // border-radius: 50px;
+  // margin-right: spacer(2);
+  // padding: 4px spacer(3);
+  // max-height: 30px;
+}
+
+.links {
+  margin-top: spacer(4);
+  .link {
+    margin: 0 spacer(1);
+  }
+}
+
+.right {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.image {
+  border-radius: 5px;
+  transform: translateX(10%);
+  @include shadow-lg;
 }
 </style>
