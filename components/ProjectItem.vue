@@ -1,19 +1,21 @@
 <template>
   <Flex :class="$style.item">
     <div :class="$style.left">
-      <h3 :class="$style.title">
-        {{ title }}
-      </h3>
-      <p :class="$style.type">
-        {{ type }}
-      </p>
+      <div :class="$style.header">
+        <h3 :class="$style.title">
+          {{ title }}
+        </h3>
+        <p :class="$style.type">
+          {{ type }}
+        </p>
+      </div>
       <ul :class="$style.technos">
         <li
           v-for="techno in technos"
           :key="techno"
           :class="$style.techno"
         >
-          &nbsp;{{ techno }} |
+          {{ techno }}
         </li>
       </ul>
       <Flex :class="$style.links">
@@ -89,7 +91,7 @@ export default {
 <style lang="scss" module>
 .item {
   background: $bluedarklight;
-  width: 70%;
+  width: 80%;
   height: 90%;
   margin: 0 spacer(2);
   border-radius: 15px;
@@ -104,9 +106,11 @@ export default {
 
 .left {
   width: 50%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  padding: spacer(8) spacer(2) spacer(2) spacer(5);
+  justify-content: space-around;
+  padding: spacer(2) spacer(2) spacer(2) spacer(5);
 }
 
 .title {
@@ -120,14 +124,18 @@ export default {
 
 .technos {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .techno {
-  @include font(1rem, $purewhite, $fontRegularWeight);
+  @include font(0.8rem, $purewhite, $fontRegularWeight);
+  margin: 5px;
+  padding: 2px 10px;
+  border: solid 1px $purewhite;
+  border-radius: 50px;
 }
 
 .links {
-  margin-top: spacer(4);
   .link {
     margin: 0 spacer(1);
     transition: transform 0.2s ease-in;

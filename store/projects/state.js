@@ -3,7 +3,7 @@ export default () => ({
     {
       id: 1,
       title: 'Food review',
-      type: 'web application',
+      type: 'web app',
       context: 'school project',
       year: '2019',
       technos: ['VueJS', 'google API', 'SCSS'],
@@ -13,8 +13,8 @@ export default () => ({
     },
     {
       id: 2,
-      title: 'Meero app',
-      type: 'saas / web application',
+      title: 'Meero',
+      type: 'saas / web app',
       context: 'professional project',
       year: '2020',
       technos: ['VueJS', 'Vuex', 'API rest'],
@@ -24,10 +24,10 @@ export default () => ({
     {
       id: 3,
       title: 'Dear communication',
-      type: 'showcase website',
+      type: 'showcase site',
       context: 'professional project',
       year: '2018',
-      technos: ['Wordpress', 'Javascript', 'SCSS'],
+      technos: ['Wordpress'],
       website: 'https://dearcommunication.com/',
       image: 'dearcom'
     },
@@ -45,10 +45,10 @@ export default () => ({
     {
       id: 5,
       title: 'Ostéopathe',
-      type: 'showcase website',
+      type: 'showcase site',
       context: 'school project',
       year: '2018',
-      technos: ['Wordpress', 'Bootstrap', 'SCSS'],
+      technos: ['Wordpress'],
       website: 'https://seguin-osteopathe.fr/',
       image: 'osteopathe'
     },

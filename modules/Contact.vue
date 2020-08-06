@@ -10,22 +10,27 @@
     </Hero>
     <Flex :class="$style.container">
       <div
-        v-for="card in cards"
+        v-for="(card, index) in cards"
         :key="card.title"
-        :class="$style.card"
+        :class="[$style.card, {[$style.bordered]: index != 3}]"
       >
         <div :class="$style.header">
           <component :is="card.icon" :class="$style.icon" />
-          <div :class="$style.cardTitle">
+          <div :class="[$style.separator]">
             |
           </div>
           <div :class="$style.cardTitle">
             {{ card.title }}
           </div>
         </div>
-        <div :class="$style.description">
-          {{ card.description }}
-        </div>
+        <a
+          :href="card.description"
+          target="_blank"
+        >
+          <div :class="$style.description">
+            {{ card.description }}
+          </div>
+        </a>
       </div>
     </Flex>
   </Grid>
@@ -106,16 +111,37 @@ export default {
 }
 
 .container {
-  width: 70%;
+  width: 85%;
   justify-self: center;
   background: #3C586E;
   border-radius: 15px;
   justify-content: space-between;
+  position: relative;
+  @include shadow-lg;
+   &:after {
+    @include overlayHorizontal((position: absolute, value: 0, delay: 1.8s))
+  }
 }
 
 .card {
   flex: 1;
   padding-top: spacer(10);
+  padding-left: spacer(2);
+  margin-right: spacer(1);
+}
+
+.bordered {
+  position: relative;
+  &.bordered {
+    &:before {
+    position: absolute;
+    content: '';
+    right: 1px;
+    width: 1px;
+    height: 50%;
+    background-color: $greenmain;
+    }
+  }
 }
 
 .header {
@@ -124,15 +150,35 @@ export default {
 
 .cardTitle {
   align-self: flex-end;
+  @include font(1.3rem, $purewhite, $fontSemiBoldWeight);
+}
+
+.separator {
+  padding-top: spacer(1.5);
+  @include font(1rem, $purewhite, $fontRegularWeight);
+  margin: 0 spacer(1.5);
+}
+
+.description {
+  margin-top: spacer(5);
+  @include font(0.8rem, $purewhite, $fontRegularWeight);
+  @include bp('lg') {
+    @include font(0.9rem, $purewhite, $fontRegularWeight);
+  }
 }
 
 .icon {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
 }
 
 .isActive {
   .hero {
+    &:after {
+      @include overlayHorizontalHide();
+    }
+  }
+  .container {
     &:after {
       @include overlayHorizontalHide();
     }
