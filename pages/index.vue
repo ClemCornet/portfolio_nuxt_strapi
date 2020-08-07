@@ -93,7 +93,9 @@ export default {
     wheel({ deltaY }) {
       if (!this.isLoaded) {
         if (deltaY > 0) {
-          this.fadePage()
+          if (this.currentIndex !== this.getPageComp.length - 1) {
+            this.fadePage()
+          }
           setTimeout(() => {
             this.updatePage(this.currentIndex + 1)
           }, 600)
