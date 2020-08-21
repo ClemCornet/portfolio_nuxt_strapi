@@ -1,7 +1,6 @@
 <template>
   <Grid
     :template-columns="$isMobile ? '1fr' : '1fr 5fr 1fr'"
-    template-rows="5fr 1fr"
     justify-items="center"
     :class="[$style.wrapper, { [$style.active]: isFading }]"
   >
@@ -114,7 +113,11 @@ export default {
   &:after {
     @include overlayHorizontal((position: absolute, value: 0, delay: 0.5s));
   }
-  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  @include bp('sm') {
+    grid-column-start: 2;
+  }
 }
 
 .number {
@@ -163,12 +166,16 @@ export default {
   @include font(1.2rem, $greenmain, $fontMediumWeight);
   position: relative;
   display: flex;
-  grid-row-start: 2;
-  grid-column-start: 1;
   justify-self: end;
   width: auto;
   cursor: pointer;
   height: 40px;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  @include bp('sm') {
+    grid-row-start: 2;
+    grid-column-start: 1;
+  }
   &:hover {
     .arrow {
       transform: translateX(-3px);
@@ -188,8 +195,14 @@ export default {
     @include overlayHorizontal((position: absolute, value: 0, delay: 1.5s));
   }
   position: relative;
+  // grid-row-start: 2;
+  // grid-column-start: 2;
   grid-row-start: 2;
-  grid-column-start: 2;
+  grid-column-start: 1;
+  @include bp('sm') {
+    grid-row-start: 2;
+    grid-column-start: 2;
+  }
   justify-self: center;
   height: 100%;
 }

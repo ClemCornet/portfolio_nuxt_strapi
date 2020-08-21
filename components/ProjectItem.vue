@@ -36,7 +36,7 @@
         </a>
       </Flex>
     </div>
-    <div :class="$style.right">
+    <div v-if="!$isMobile" :class="$style.right">
       <img
         :class="$style.image"
         :src="require(`@/assets/images/projects/${image}.png`)"
@@ -91,26 +91,34 @@ export default {
 <style lang="scss" module>
 .item {
   background: $bluedarklight;
-  width: 80%;
-  height: 90%;
-  margin: 0 spacer(2);
+  width: 90%;
+  height: auto;
+  margin: 0 auto spacer(2) auto;
   border-radius: 15px;
   overflow: hidden;
   cursor: pointer;
   @include shadow-lg;
   transition: transform 0.1s ease;
+  @include bp('sm') {
+    width: 80%;
+    height: 90%;
+    margin: 0 spacer(2);
+  }
   &:hover {
     transform: translateY(-3px);
   }
 }
 
 .left {
-  width: 50%;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   padding: spacer(2) spacer(2) spacer(2) spacer(5);
+  @include bp('sm') {
+    width: 50%;
+  }
 }
 
 .title {

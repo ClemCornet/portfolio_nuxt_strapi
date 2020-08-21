@@ -1,14 +1,14 @@
 <template>
   <Grid
     :class="[$style.wrapper, { [$style.isActive]: active }]"
-    :template-rows="$isMobile ? '1fr' : '1fr 1fr 1fr'"
+    :template-rows="$isMobile ? '0.3fr' : '1fr 1fr 1fr'"
   >
     <Hero :class="$style.hero">
       <h1 :class="$style.title">
         {{ 'let\'s talk' | capitalize }}
       </h1>
     </Hero>
-    <Flex :class="$style.container">
+    <Flex v-if="!$isTablet" :class="$style.container">
       <div
         v-for="(card, index) in cards"
         :key="card.title"
@@ -24,6 +24,7 @@
           </div>
         </div>
         <a
+          v-if="index != 0"
           :href="card.description"
           target="_blank"
         >
@@ -31,6 +32,42 @@
             {{ card.description }}
           </div>
         </a>
+        <p v-else :class="$style.description">
+          {{ card.description }}
+        </p>
+      </div>
+    </Flex>
+    <Flex
+      v-else
+      direction="column"
+      justify="space-evenly"
+    >
+      <div
+        v-for="(card, index) in cards"
+        :key="card.title"
+        :class="$style.card_mobile"
+      >
+        <div :class="$style.header">
+          <component :is="card.icon" :class="$style.icon" />
+          <div :class="[$style.separator]">
+            |
+          </div>
+          <div :class="$style.cardTitle">
+            {{ card.title }}
+          </div>
+        </div>
+        <a
+          v-if="index != 0"
+          :href="card.description"
+          target="_blank"
+        >
+          <div :class="$style.description_mobile">
+            {{ card.description }}
+          </div>
+        </a>
+        <p v-else :class="$style.description_mobile">
+          {{ card.description }}
+        </p>
       </div>
     </Flex>
   </Grid>
@@ -161,6 +198,23 @@ export default {
 
 .description {
   margin-top: spacer(5);
+  @include font(0.8rem, $purewhite, $fontRegularWeight);
+  @include bp('lg') {
+    @include font(0.9rem, $purewhite, $fontRegularWeight);
+  }
+}
+
+/** Mobile cards */
+
+.card_mobile {
+  background: $bluedarklight;
+  border-radius: 20px;
+  width: 80%;
+  margin: spacer(5) auto 0 auto;
+  padding: spacer(3) 0 spacer(3) spacer(3);
+}
+
+.description_mobile {
   @include font(0.8rem, $purewhite, $fontRegularWeight);
   @include bp('lg') {
     @include font(0.9rem, $purewhite, $fontRegularWeight);

@@ -45,7 +45,8 @@ export default {
   data() {
     return {
       isLoaded: false,
-      isFading: false
+      isFading: false,
+      touchPosition: 0
     }
   },
   computed: {
@@ -70,6 +71,8 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
+      window.addEventListener('touchmove', this.touchmove)
+      window.addEventListener('wheel', this.touchStart)
       window.addEventListener('wheel', this.wheel)
     })
     setTimeout(() => {
@@ -89,6 +92,14 @@ export default {
         this.isLoaded = true
         this.navigatePage(index)
       }
+    },
+    touchmove({ touches: [{ clientY: y }] }) {
+      const movementY = y - this.touchPosition
+      this.touchPosition = y
+      this.wheel({ deltaY: -movementY })
+    },
+    touchstart({ touches: [{ clientY: y }] }) {
+      this.touchPosition = y
     },
     wheel({ deltaY }) {
       if (!this.isLoaded) {

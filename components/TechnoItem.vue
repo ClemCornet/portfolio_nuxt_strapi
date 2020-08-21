@@ -42,15 +42,19 @@ export default {
 <style lang="scss" module>
 
 .item {
-  width: 600px;
+  width: 100%;
   height: auto;
   margin-top: spacer(3);
-  padding: spacer(2) 0 spacer(4) spacer(2);
+  padding: spacer(1) 0 spacer(2) spacer(1);
   border-radius: 15px;
   background: $bluedarklight;
   @include shadow-lg;
   transition: transform 0.1s ease;
   cursor: pointer;
+  @include bp('sm') {
+    width: 600px;
+    padding: spacer(2) 0 spacer(4) spacer(2);
+  }
   &:hover {
     transform: translateY(-3px);
   }
@@ -66,8 +70,11 @@ export default {
 }
 
 .image {
-  width: 70px;
-  height: 70px;
+  width: 40px;
+  height: auto;
+  @include bp('sm') {
+    width: 70px;
+  }
   border-radius: 50%;
 }
 

@@ -9,7 +9,7 @@
       :source="image"
       alt="number"
       :class="[$style.image, {[$style.isActive]: active}]"
-      :width="$isMobile ? 90 : 150"
+      :width="$isMobile ? 60 : 150"
       height="auto"
     />
     <h2 :class="$style.title">

@@ -1,7 +1,7 @@
 <template>
   <Grid
     :class="[$style.wrapper, {[$style.isActive]: active}]"
-    :template-rows="$isMobile ? '1fr' : '2fr 0.5fr 6fr'"
+    :template-rows="$isMobile ? '0.3fr' : '2fr 0.5fr 6fr'"
   >
     <Hero :class="$style.hero">
       <h1 :class="$style.title">
@@ -10,8 +10,8 @@
     </Hero>
     <Tabs :class="$style.tabs" :projects="chunkProjects.length" @currentPage="getCurrentPage" />
     <Grid
-      template-rows="1fr 1fr"
-      template-columns="1fr 1fr"
+      :template-rows="$isMobile ? '' : '1fr 1fr'"
+      :template-columns="$isMobile ? '1fr' : '1fr 1fr'"
       :class="$style.projectsWrapper"
     >
       <ProjectItem
@@ -60,7 +60,8 @@ export default {
       return this.projects[this.currentIndex].component
     },
     chunkProjects() {
-      return this.$store.getters['projects/chunkProject'](4)
+      return this.$isMobile ? this.$store.getters['projects/chunkProject'](2)
+        : this.$store.getters['projects/chunkProject'](4)
     },
     currentPage() {
       return this.chunkProjects[this.currentIndex]
@@ -78,6 +79,11 @@ export default {
 
 .hero {
   position: relative;
+  margin-top: spacer(2);
+  @include bp('sm') {
+    margin-top: spacer(8);
+  }
+
   &:after {
     @include overlayHorizontal((position: absolute, value: 0, delay: 2s));
   }
@@ -86,7 +92,9 @@ export default {
 .title {
   position: relative;
   @include font($fontMediumSize, $purewhite, $fontSemiBoldWeight);
+  padding-left: spacer(1);
   @include bp('sm') {
+    padding: 0;
     @include font($fontBigSize, $purewhite, $fontSemiBoldWeight);
   }
 }
@@ -97,7 +105,10 @@ export default {
 
 .tabs {
   position: relative;
-  align-self: flex-start;
+  align-self: center;
+  @include bp('sm') {
+    align-self: flex-start;
+  }
   &:after {
     @include overlayHorizontal((position: absolute, value: 0, delay: 2s));
   }
